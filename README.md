@@ -4,7 +4,7 @@ We are here to do something...
 
 ## Quickstart
 ````
-https://github.com/hacking-science/hacking-science-website.git
+git clone https://github.com/hacking-science/hacking-science-website.git
 cd hacking-science-website
 virtualenv virtualenv-hacking-science-website
 source virtualenv-hacking-science-website/bin/activate
