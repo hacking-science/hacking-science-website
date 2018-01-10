@@ -102,3 +102,4 @@ ENV/
 
 .idea/
 virtualenv-hacking-science-website/
+db.sqlite3
