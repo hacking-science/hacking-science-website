@@ -2,5 +2,11 @@
 
 
 {% block content %}
-Hello
+        <table>
+
+{% for p in posts %}
+   <tr><td>{{p.title}}</td><td>{{p.content}}</td></tr>
+{% endfor %}
+            </table>
+
 {% endblock %}
