@@ -1,1 +1,7 @@
-SECRECT:
+secret_key:
+
+db:
+
+    url:
+
+
