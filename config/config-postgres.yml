@@ -1,0 +1,15 @@
+secret_key: aaaaaaaaa
+
+debug: True
+
+db:
+    ENGINE: django.db.backends.postgresql
+    NAME: hackscience
+    USERNAME: hackscience
+    PASSWORD: password
+    HOST: 127.0.0.1
+    PORT: 5432
+
+
+
+

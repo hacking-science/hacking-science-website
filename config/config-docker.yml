@@ -1,0 +1,11 @@
+secret_key: <%= ENV['SECRET_KEY'] %>
+
+debug: True
+
+db:
+    ENGINE: <%= ENV['DATABASES_ENGINE'] %>
+    NAME: <%= ENV['DATABASES_NAME'] %>
+    USER: <%= ENV['DATABASES_USER'] %>
+    PASSWORD: <%= ENV['DATABASES_PASSWORD'] %>
+    HOST: <%= ENV['DATABASES_HOST'] %>
+    PORT: <%= ENV['DATABASES_PORT'] %>

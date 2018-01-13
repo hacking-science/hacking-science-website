@@ -1,3 +1,7 @@
 *
-!hackscience
-!requirement.txt
+!blog/
+!hackscience/
+!config/
+!manage.py
+!requirements.txt
+!run.sh

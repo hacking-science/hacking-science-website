@@ -11,19 +11,53 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import yaml
+import re
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# pass a variable from python manage.py to here
+env = os.environ.get('APP_ENV', '')
+
+CONFIG_DIR = BASE_DIR + "/config/"
+
+pattern = re.compile(r'^\<%= ENV\[\'(.*)\'\] %\>(.*)$')
+yaml.add_implicit_resolver("!pathex", pattern)
+
+
+def pathex_constructor(loader,node):
+    value = loader.construct_scalar(node)
+    env_var, remaining_path = pattern.match(value).groups()
+    return os.environ[env_var] + remaining_path
+
+
+yaml.add_constructor('!pathex', pathex_constructor)
+
+# Load Default Config File
+with open(CONFIG_DIR + "config.yml", 'r') as ymlfile:
+    default_cfg = yaml.load(ymlfile)
+
+# Attempt a custom Config File
+try:
+    with open(CONFIG_DIR + "config-"+env+".yml", 'r') as ymlfile:
+        custom_cfg = yaml.load(ymlfile)
+except IOError:
+    custom_cfg = {}
+
+default_cfg.update(custom_cfg)
+
+print default_cfg
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2)p$0)nrda-fl&dj^c3mxdempb04tx4&4@22)y%2qopk-=u^*k'
+SECRET_KEY = default_cfg['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = default_cfg['debug']
 
 ALLOWED_HOSTS = []
 
@@ -75,15 +109,15 @@ TEMPLATE_DIRS = (
 
 WSGI_APPLICATION = 'hackscience.wsgi.application'
 
+# Load up the right setting for sqlite3 db
+if default_cfg['db']['ENGINE'] == 'django.db.backends.sqlite3':
+    default_cfg['db']['NAME'] = os.path.join(BASE_DIR, default_cfg['db']['NAME'])
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
+# if this is sqlite3 then use somthing else
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': default_cfg['db']
 }
 
 
