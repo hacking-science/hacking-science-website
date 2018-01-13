@@ -33,3 +33,23 @@ def theEdge(request):
 
     context = {}
     return render(request, "./home/theEdge.html", context)
+
+def brigdeAcademy(request):
+
+    """Generate the Bridge-Academy Data"""
+
+    context = {}
+    return render(request, "./home/bridgeAcademy.html", context)
+
+def dalstonLibrary(request):
+
+    """Generate the Dalston Library Data"""
+
+    context = {}
+    return render(request, "./home/dalstonLibrary.html", context)
+
+def events(request):
+    """Generate the Dalston Library Data"""
+    context = {}
+    return render(request, "./home/events.html", context)
+
