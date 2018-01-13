@@ -1,12 +1,13 @@
- FROM python:2.7
+FROM python:2.7
 
- ENV PYTHONUNBUFFERED 1
+MAINTAINER "Hacking Science <https://github.com/hacking-science/>"
+LABEL maintainer = "Hacking Science <https://github.com/hacking-science/>"
 
- RUN mkdir -p /code
- WORKDIR /code
+ENV PYTHONUNBUFFERED 1
 
- COPY requirements.txt /code/
+RUN mkdir -p /code
+WORKDIR /code
 
- RUN pip install -r requirements.txt
-
- COPY . /code/
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
+COPY . /code/
