@@ -1,0 +1,133 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<nav class="navbar is-transparent">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item title is-4" href="/">Hacking Science</a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="workshop.html">
+                        Workshops
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item is-active" href="/documentation/overview/start/">
+                            Edge
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Hackney
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                            Dalston
+                        </a>
+                    </div>
+                </div>
+                <a href="events.html" class="navbar-item">
+                    Events
+                </a>
+                <a class="navbar-item">
+                    About
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child notification is-primary">
+                            <p class="title">Vertical...</p>
+                            <p class="subtitle">Top tile</p>
+                        </article>
+                        <article class="tile is-child notification is-warning">
+                            <p class="title">...tiles</p>
+                            <p class="subtitle">Bottom tile</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-info">
+                            <p class="title">Science in the news</p>
+                            <p class="subtitle">With an image</p>
+                            <figure class="image is-4by3">
+                                <img src="https://bulma.io/images/placeholders/640x480.png">
+                            </figure>
+                        </article>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification is-danger">
+                        <p class="title">Raspberry Pi</p>
+                        <p class="subtitle">Projects you can do yourself</p>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="highlight-full"></div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tags: {% for tag in tags %}
+<a href = "{% url 'tag' tag_id=tag.id %}">
+    <strong>{{tag.title}}</strong>
+</a>{% endfor %}{% if reset %}
+<a href = "{% url 'index' %}">Unapply tag</a>
+{% endif %}
+<hr>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Tags</th>
+    </tr>
+    {% for p in posts %}
+    {% include '../body/blog_tile.html' with blog=p %}
+
+
+    <tr>
+        <td>{{p.title}}</td>
+        <td>{{p.content}}</td>
+        <td>
+            {% for t in p.get_tags %}
+            <a href = "{% url 'tag' tag_id=t.id %}">
+                <strong>{{t.title}}</strong>
+            </a>,
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

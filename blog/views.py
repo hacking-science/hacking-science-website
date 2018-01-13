@@ -12,7 +12,7 @@ def index(request):
     reset = False
     tags = Tag.objects.all()
     context = {"posts": posts, "reset": reset, "tags": tags}
-    return render(request, "index.html", context)
+    return render(request, "./home/index.html", context)
 
 
 def tag(request, tag_id=None):
@@ -22,6 +22,6 @@ def tag(request, tag_id=None):
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
-        return render(request, "index.html", context)
+        return render(request, "./home/index.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
