@@ -34,12 +34,14 @@ def theEdge(request):
     context = {}
     return render(request, "./home/theEdge.html", context)
 
+
 def brigdeAcademy(request):
 
     """Generate the Bridge-Academy Data"""
 
     context = {}
     return render(request, "./home/bridgeAcademy.html", context)
+
 
 def dalstonLibrary(request):
 
@@ -48,8 +50,25 @@ def dalstonLibrary(request):
     context = {}
     return render(request, "./home/dalstonLibrary.html", context)
 
+
 def events(request):
     """Generate the Dalston Library Data"""
     context = {}
     return render(request, "./home/events.html", context)
 
+
+def subscribe(request):
+    """Generate Subscribe page"""
+    context ={}
+    return render(request, "./home/subscribe.html", context)
+
+
+def feed(request):
+    """Generate hackingScience main feed"""
+    context ={}
+    return render(request, "./home/feed.html", context)
+
+def mapToBreathe(request):
+    """Generate A Map to Breathe Page"""
+    context={}
+    return render(request, ".home/mapToBreathe")

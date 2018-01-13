@@ -27,12 +27,12 @@
                     About
                 </a>
 
-                <a class="navbar-item">
+                <a class="navbar-item" href="{% url 'feed' %}">
                     Feed
                 </a>
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="workshop.html">
+                    <a class="navbar-link">
                         Workshops
                     </a>
                     <div class="navbar-dropdown is-boxed">
@@ -51,7 +51,11 @@
                     Events
                 </a>
 
-                 <a class="navbar-item">
+                <a class="navbar-item" href="{% url 'mapToBreathe' %}">
+                    Events
+                </a>
+
+                 <a class="navbar-item" href="{% url 'subscribe' %}">
                     Subscribe
                 </a>
 

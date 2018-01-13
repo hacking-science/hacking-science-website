@@ -11,4 +11,7 @@ urlpatterns = [
     url(r'^bridgeAcademy/$', views.brigdeAcademy, name='bridgeAcademy'),
     url(r'^dalstonLibrary/$', views.dalstonLibrary, name='dalstonLibrary'),
     url(r'^events/$', views.events, name='events'),
+    url(r'^subscribe/$', views.subscribe, name='subscribe'),
+    url(r'^feed/$', views.feed, name='feed'),
+    url(r'^mapToBreathe/$', views.mapToBreathe, name='mapToBreathe'),
 ]
