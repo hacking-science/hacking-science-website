@@ -25,3 +25,11 @@ def tag(request, tag_id=None):
         return render(request, "./home/index.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
+
+
+def theEdge(request):
+
+    """Generate the Edge Data"""
+
+    context = {}
+    return render(request, "./home/theEdge.html", context)
