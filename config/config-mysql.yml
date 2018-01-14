@@ -1,0 +1,15 @@
+secret_key: aaaaaaaaa
+
+debug: True
+
+db:
+    ENGINE: django.db.backends.mysql
+    NAME: hackscience
+    USER: hackscience
+    PASSWORD: password
+    HOST: 127.0.0.1
+    PORT: 3306
+
+
+
+

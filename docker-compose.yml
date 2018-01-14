@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+    hack-science-blog-web:
+        build: .
+        environment:
+        - APP_ENV=docker
+        - SECRET_KEY=aaaaaaaaaaaa
+        - DEBUG=True
+        - BASE_DIR=/code/
+        - DUMP_DIR=/code/dumps
+        - VIRTUAL_ENV=hacking-science-website
+
+        - DATABASES_ENGINE=django.db.backends.mysql
+#        - DATABASES_ENGINE=django.db.backends.postgresql
+        - DATABASES_NAME=hackscience
+        - DATABASES_USER=hackscience
+        - DATABASES_PASSWORD=password
+        - DATABASES_HOST=hack-science-blog-mysql-db
+#        - DATABASES_HOST=hack-science-blog-postgres-db
+        - DATABASES_PORT=3306
+#        - DATABASES_PORT=5432
+        ports:
+        - 8000:8000
+        depends_on:
+        - hack-science-blog-mysql-db
+        - hack-science-blog-postgres-db
+        links:
+        - hack-science-blog-mysql-db
+        - hack-science-blog-postgres-db
+
+    hack-science-blog-mysql-db:
+        image: mysql
+        restart: always
+        environment:
+        - MYSQL_ROOT_PASSWORD=hackscience
+        - MYSQL_USER=hackscience
+        - MYSQL_PASSWORD=password
+        - MYSQL_DATABASE=hackscience
+        ports:
+        - 3306:3306
+
+    hack-science-blog-postgres-db:
+        image: postgres
+        restart: always
+        environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=hackscience
+        ports:
+        - 5432:5432
+
+# login with root:password at localhost:8080
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+        - 8080:8080
