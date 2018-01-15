@@ -71,4 +71,4 @@ def feed(request):
 def mapToBreathe(request):
     """Generate A Map to Breathe Page"""
     context={}
-    return render(request, ".home/mapToBreathe")
+    return render(request, "./home/mapToBreathe.html", context)
