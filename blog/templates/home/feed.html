@@ -2,20 +2,21 @@
 
 {% block content %}
 
-<a>Hacking Science feed page goes here</a>
-Tags: {% for tag in tags %}
+
+
+    <section class="section">
+    <div class="container">
+<p class="title is-4">Feed</p>
+    <hr>
+        Tags: {% for tag in tags %}
 <a href = "{% url 'tag' tag_id=tag.id %}">
     <strong>{{tag.title}}</strong>
 </a>{% endfor %}{% if reset %}
-<a href = "{% url 'index' %}">Unapply tag</a>
+<a href = "{% url 'feed' %}">Unapply tag</a>
 {% endif %}
 <hr>
 <table>
-    <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Tags</th>
-    </tr>
+
     {% for p in posts %}
      {% include '../body/blog_tile.html' with blog=p %}
     <tr>
@@ -32,6 +33,8 @@ Tags: {% for tag in tags %}
     {% endfor %}
 </table>
 
+    </div>
+    </section>
 {% endblock %}
 
 

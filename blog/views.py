@@ -22,7 +22,7 @@ def tag(request, tag_id=None):
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
-        return render(request, "./home/index.html", context)
+        return render(request, "./home/feed.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
 
@@ -65,7 +65,10 @@ def subscribe(request):
 
 def feed(request):
     """Generate hackingScience main feed"""
-    context ={}
+    posts = Post.objects.all()
+    reset = False
+    tags = Tag.objects.all()
+    context = {"posts": posts, "reset": reset, "tags": tags}
     return render(request, "./home/feed.html", context)
 
 def mapToBreathe(request):

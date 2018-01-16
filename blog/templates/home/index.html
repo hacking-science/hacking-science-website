@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <section class="section">
     <div class="container">
         <div class="tile is-ancestor">
@@ -37,12 +38,29 @@
                     </article>
                 </div>
             </div>
+            <div class="tile is-parent">
+                  <article class="tile is-child notification is-success">
+                    <p class="title">Latest Hacking Science News</p>
+                    <div class="content">
+                            <p class="subtitle">News bulletin #1</p>
+                            <figure class="image">
+                                    <img src="http://via.placeholder.com/250x150">
+                                  </figure>
+
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+                      <p class="subtitle">News bulletin #2</p>
+
+                      <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
+                    </div>
+                  </article>
+                </div>
         </div>
         <div class="highlight-full"></div>
     </div>
 </section>
 
-
+<section class="section">
+    <div class="container">
 
 Tags: {% for tag in tags %}
 <a href = "{% url 'tag' tag_id=tag.id %}">
@@ -51,7 +69,8 @@ Tags: {% for tag in tags %}
 <a href = "{% url 'index' %}">Unapply tag</a>
 {% endif %}
 <hr>
-<table>
+
+    <table>
     <tr>
         <th>Title</th>
         <th>Content</th>
@@ -74,5 +93,7 @@ Tags: {% for tag in tags %}
     </tr>
     {% endfor %}
 </table>
+</div>
 
+</section>
 {% endblock %}
