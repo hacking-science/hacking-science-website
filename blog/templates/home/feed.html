@@ -39,4 +39,44 @@
 
 
 
+<!-- testing modal pop up -->
 
+<script>
+
+function openPostModal(){
+    jQuery.noConflict();
+    $("#PostModal").modal("show");
+}
+
+
+</script>
+
+<div id="postModal" class="modal fade in" style="width:100% ;height:100%">
+  <div class="modal-dialog" style="width:40%;height:80%">
+    <!-- Modal content-->
+    <div class="modal-content"  style = "width:100%">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Post Title will go here</h4>
+      </div>
+
+      <div class="modal-body" style = "width:100%">
+        <p><b>Subject: post content will go here</b></p>
+        <hr>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick = "buttonFavourite()" data-dismiss="modal"> Favourite </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<a class="section" onclick='javascript:openPostModal()' >
+
+    Click here to open modal
+
+					</a>
