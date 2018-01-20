@@ -1,0 +1,65 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hacking Science</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<nav class="navbar is-transparent">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item title is-4" href="/">Hacking Science</a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+
+                <a class="navbar-item" href="{% url 'index' %}">
+                    Home
+                </a>
+
+                <a class="navbar-item">
+                    About
+                </a>
+
+                <a class="navbar-item" href="{% url 'feed' %}">
+                    Feed
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Workshops
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="{% url 'theEdge' %}">
+                            The Edge
+                        </a>
+                        <a class="navbar-item" href="{% url 'bridgeAcademy' %}">
+                            Bridge-Academy
+                        </a>
+                        <a class="navbar-item" href="{% url 'dalstonLibrary' %}">
+                            Dalston Library
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-item" href="{% url 'events' %}">
+                    Events
+                </a>
+
+                <a class="navbar-item" href="{% url 'mapToBreathe' %}">
+                    mapToBreathe
+                </a>
+
+                 <a class="navbar-item" href="{% url 'subscribe' %}">
+                    Subscribe
+                </a>
+
+            </div>
+        </div>
+    </div>
+</nav>

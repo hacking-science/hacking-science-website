@@ -1,0 +1,21 @@
+{% block blog %}
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-success">
+            <p class="title">{{ blog.title }} </p>
+            <div class="content">
+                {# <!--<p class="subtitle">{% blog.subtitle %}</p>--> #}
+                <figure class="image">
+                    {# <!--<img src="{% blog.mainImg %}">--> #}
+                </figure>
+                <p>{{blog.content}}</p>
+                <p>
+                    {% for t in blog.get_tags %}
+                    <a href = "{% url 'tag' tag_id=t.id %}">
+                        <strong>{{t.title}}</strong>
+                    </a>,
+                    {% endfor %}
+                </p>
+            </div>
+        </article>
+    </div>
+{% endblock %}

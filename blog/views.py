@@ -12,7 +12,7 @@ def index(request):
     reset = False
     tags = Tag.objects.all()
     context = {"posts": posts, "reset": reset, "tags": tags}
-    return render(request, "index.html", context)
+    return render(request, "./home/index.html", context)
 
 
 def tag(request, tag_id=None):
@@ -22,6 +22,56 @@ def tag(request, tag_id=None):
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
-        return render(request, "index.html", context)
+        return render(request, "./home/feed.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
+
+
+def theEdge(request):
+
+    """Generate the Edge Data"""
+
+    context = {}
+    return render(request, "./home/theEdge.html", context)
+
+
+def brigdeAcademy(request):
+
+    """Generate the Bridge-Academy Data"""
+
+    context = {}
+    return render(request, "./home/bridgeAcademy.html", context)
+
+
+def dalstonLibrary(request):
+
+    """Generate the Dalston Library Data"""
+
+    context = {}
+    return render(request, "./home/dalstonLibrary.html", context)
+
+
+def events(request):
+    """Generate the Dalston Library Data"""
+    context = {}
+    return render(request, "./home/events.html", context)
+
+
+def subscribe(request):
+    """Generate Subscribe page"""
+    context ={}
+    return render(request, "./home/subscribe.html", context)
+
+
+def feed(request):
+    """Generate hackingScience main feed"""
+    posts = Post.objects.all()
+    reset = False
+    tags = Tag.objects.all()
+    context = {"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "./home/feed.html", context)
+
+def mapToBreathe(request):
+    """Generate A Map to Breathe Page"""
+    context={}
+    return render(request, "./home/mapToBreathe.html", context)
