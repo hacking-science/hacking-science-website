@@ -2,6 +2,8 @@ secret_key: aaaaaaaaa
 
 debug: True
 
+heroku: False
+
 db:
     ENGINE: django.db.backends.sqlite3
     NAME: db.sqlite3

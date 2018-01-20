@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import yaml
 import re
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,7 +48,7 @@ except IOError:
 
 default_cfg.update(custom_cfg)
 
-print default_cfg
+print(default_cfg)
 
 
 # Quick-start development settings - unsuitable for production
@@ -59,8 +60,7 @@ SECRET_KEY = default_cfg['secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = default_cfg['debug']
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'hacking-science-website.herokuapp.com']
 
 # Application definition
 
@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'django_extensions',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -108,6 +109,11 @@ TEMPLATE_DIRS = (
 )
 
 WSGI_APPLICATION = 'hackscience.wsgi.application'
+
+# we are using heroku you need to use this... I hate it but meh
+# https://devcenter.heroku.com/articles/heroku-postgresql#connecting-with-django
+if default_cfg['heroku']:
+    default_cfg['db'] = dj_database_url.config()
 
 # Load up the right setting for sqlite3 db
 if default_cfg['db']['ENGINE'] == 'django.db.backends.sqlite3':

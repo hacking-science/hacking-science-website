@@ -1,6 +1,6 @@
 secret_key: <%= ENV['SECRET_KEY'] %>
 
-debug: False
+debug: <%= ENV['DEBUG_MODE'] %>
 
 heroku: True
 

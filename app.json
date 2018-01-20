@@ -1,0 +1,80 @@
+{
+    "name": "Hacking Science Website",
+    "description": "Basic Django App",
+    "keywords": [
+        "Django",
+        "polls",
+        "python"
+    ],
+    "logo": "https://github.com/hacking-science/hacking-science-website/raw/master/hacking-science-logo-300.jpg",
+    "website": "http://hacking-science-website.herokuapp.com/",
+    "repository": "https://github.com/hacking-science/hacking-science-website",
+    "success_url": "/",
+    "scripts": {
+        "postdeploy": "sh -c 'python manage.py syncdb --noinput; python manage.py migrate --noinput; python manage.py runscript create_admin'"
+    },
+    "env": {
+        "SECRET_KEY": {
+            "description": "A randomly generated secret to secure your Django installation",
+            "generator": "secret"
+        },
+        "APP_ENV": {
+            "description": "Type of app Environment",
+            "value": "test"
+        },
+        "DEBUG_MODE": {
+            "description": "Type of app Environment",
+            "value": "True"
+        },
+        "DISABLE_COLLECTSTATIC": {
+            "description": "Type of app Environment",
+            "value": "1"
+        },
+        "ADMIN_USER": {
+            "description": "Admin Username (please use something better)",
+            "value": "admin"
+        },
+        "ADMIN_PASSWORD": {
+            "description": "Admin Password (please use something better)",
+            "value": "password"
+        }
+    ,
+        "DATABASES_ENGINE": {
+            "description": "DB Engine (Default Postgres)",
+            "value": "django.db.backends.postgresql"
+        },
+        "DATABASES_NAME": {
+            "description": "DB Name (Should be generated with addon)",
+            "value": "hackscience"
+        },
+        "DATABASES_USER": {
+            "description": "DB Username (Should be generated with addon)",
+            "value": "hackscience"
+        },
+        "DATABASES_PASSWORD": {
+            "description": "DB Password (Should be generated with addon)",
+            "value": "password"
+        },
+        "DATABASES_HOST": {
+            "description": "DB Host Address (Should be generated with addon)",
+            "value": "127.0.0.1"
+        },
+        "DATABASES_PORT": {
+            "description": "DB Port (Should be generated with addon)",
+            "value": "5432"
+        }
+    },
+    "formation": {},
+    "image": "heroku/python",
+    "buildpacks": [],
+    "environments": {},
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "as": "DATABASE",
+            "options": {
+                "version": "9.5"
+            }
+        }
+    ]
+}

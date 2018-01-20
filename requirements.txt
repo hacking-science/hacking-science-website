@@ -4,3 +4,6 @@ wheel==0.24.0
 PyYAML==3.12
 mysqlclient
 psycopg2
+dj_database_url
+django-extensions
+gunicorn
