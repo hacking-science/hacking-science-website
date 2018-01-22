@@ -1,46 +1,84 @@
-{% extends '../base.html' %}
-
+{% extends 'base.html' %}
 {% block content %}
+    <div class="columns is-mobile is-centered">
+        <div class="column is-half is-narrow">
+            {% for p in posts %}
+                {% if p.type == "FEAT" %}
+                    <div class="card box">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="http://via.placeholder.com/700x300" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">{{ p.title }}</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                    </div>
 
-
-
-    <section class="section">
-    <div class="container">
-<p class="title is-4">Feed</p>
-    <hr>
-        Tags: {% for tag in tags %}
-<a href = "{% url 'tag' tag_id=tag.id %}">
-    <strong>{{tag.title}}</strong>
-</a>{% endfor %}{% if reset %}
-<a href = "{% url 'feed' %}">Unapply tag</a>
-{% endif %}
-<hr>
-<table>
-
-    {% for p in posts %}
-     {% include '../body/blog_tile.html' with blog=p %}
-    <tr>
-        <td>{{p.title}}</td>
-        <td>{{p.content}}</td>
-        <td>
-            {% for t in p.get_tags %}
-            <a href = "{% url 'tag' tag_id=t.id %}">
-                <strong>{{t.title}}</strong>
-            </a>,
+                    <div class="content">
+                        {{ p.content }}
+                        <br>
+                        {% for t in p.get_tags %}
+                            <a href = "{% url 'tag' tag_id=t.id %}">#{{t.title}}</a>
+                        {% endfor %}
+                        <br>
+                        <time datetime="2016-1-1">{{ p.date_created }}</time>
+                    </div>
+                </div>
+            </div>
+                {% elif p.type == "LINK" %}
+                    <div class="link box">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ p.title }}</strong>
+                                <small>8/12/2017</small>
+                                <br>
+                                {{ p.content }}
+                            </p>
+                        </div>
+                        <nav class="level is-mobile">
+                            {% for t in p.get_tags %}
+                            <a href = "{% url 'tag' tag_id=t.id %}">#{{t.title}}</a>
+                        {% endfor %}
+                        </nav>
+                    </div>
+                </article>
+            </div>
+                {% endif %}
             {% endfor %}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
 
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+            <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next page</a>
+            <ul class="pagination-list">
+              <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+              <li><a class="pagination-link" aria-label="Goto page 6">6</a></li>
+              <li><a class="pagination-link is-current" aria-label="Page 7" aria-current="page">7</a></li>
+              <li><a class="pagination-link" aria-label="Goto page 8">8</a></li>
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+              <li><a class="pagination-link" aria-label="Goto page 15">15</a></li>
+            </ul>
+          </nav>
+        </div>
     </div>
-    </section>
 {% endblock %}
-
-
-
 <!-- testing modal pop up -->
-
 <script>
 
 function openPostModal(){
@@ -73,10 +111,4 @@ function openPostModal(){
     </div>
   </div>
 </div>
-
-
-<a class="section" onclick='javascript:openPostModal()' >
-
-    Click here to open modal
-
-					</a>
+<a class="section" onclick='openPostModal()'>Click here to open modal</a>

@@ -71,6 +71,7 @@ def feed(request):
     context = {"posts": posts, "reset": reset, "tags": tags}
     return render(request, "./home/feed.html", context)
 
+
 def mapToBreathe(request):
     """Generate A Map to Breathe Page"""
     context={}
