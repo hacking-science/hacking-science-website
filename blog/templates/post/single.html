@@ -2,5 +2,20 @@
 
 
 {% block content %}
-<div class="single">single</div>
+<div class="single">
+    <div class="single__title">
+        <h2>{{ post.title }}</h2>
+    </div>
+    <div class="single__content">
+        {{ post.content }}
+    </div>
+    <div class="single__tags">
+        {% for tag in post.get_tags %}
+        <div class="single__tag">
+            <a href="{% url 'tag' tag_id=tag.id %}">{{tag.title}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
 {% endblock %}

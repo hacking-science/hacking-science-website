@@ -76,8 +76,10 @@ def mapToBreathe(request):
     context={}
     return render(request, "./home/mapToBreathe.html", context)
 
-def post(request):
+def post(request, post_id):
     """Generate Feed post page"""
+    post = Post.objects.get(id=post_id)
 
-    context = {}
+
+    context = {"post": post}
     return render(request, "./post/single.html", context)

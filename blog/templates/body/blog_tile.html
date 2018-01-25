@@ -1,5 +1,5 @@
 {% block blog %}
-<a href="{% url 'post' %}">
+<a href="{% url 'post' post_id=blog.id %}">
     <div class="tile is-parent">
         <article class="tile is-child notification is-success">
             <p class="title">{{ blog.title }} </p>
