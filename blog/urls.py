@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^subscribe/$', views.subscribe, name='subscribe'),
     url(r'^feed/$', views.feed, name='feed'),
     url(r'^mapToBreathe/$', views.mapToBreathe, name='mapToBreathe'),
+    url(r'^post/$', views.post, name='post')
 ]

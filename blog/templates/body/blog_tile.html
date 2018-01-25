@@ -1,4 +1,5 @@
 {% block blog %}
+<a href="{% url 'post' %}">
     <div class="tile is-parent">
         <article class="tile is-child notification is-success">
             <p class="title">{{ blog.title }} </p>
@@ -12,10 +13,11 @@
                     {% for t in blog.get_tags %}
                     <a href = "{% url 'tag' tag_id=t.id %}">
                         <strong>{{t.title}}</strong>
-                    </a>,
+                    </a>
                     {% endfor %}
                 </p>
             </div>
         </article>
     </div>
+</a>
 {% endblock %}

@@ -75,3 +75,9 @@ def mapToBreathe(request):
     """Generate A Map to Breathe Page"""
     context={}
     return render(request, "./home/mapToBreathe.html", context)
+
+def post(request):
+    """Generate Feed post page"""
+
+    context = {}
+    return render(request, "./post/single.html", context)
