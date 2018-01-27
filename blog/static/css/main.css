@@ -81,4 +81,23 @@ img {
 }
 
 /* === post/single.html === */
+.single  {
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-areas: '. content .';
+    margin: 64px
+}
 
+.single__container {
+    grid-area: content;
+}
+
+@media screen and (min-width: 600px) {
+    .single  {
+        grid-template-columns: 1fr 600px 1fr;
+    }
+}
+
+.single__header * {
+    margin: 32px 0;
+}
