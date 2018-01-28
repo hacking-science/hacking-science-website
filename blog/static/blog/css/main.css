@@ -3,18 +3,11 @@
     height: 128px !important;
     object-fit: cover;
 }
-.navbar-brand .title {
-    margin: 0;
-    position: fixed;
-}
 
 .columns.is-mobile.is-centered {
     margin-top: 32px;
 }
 
-.main-container {
-    margin-top: 32px;
-}
 .date.month {
     color: red;
 }
@@ -26,6 +19,7 @@
     margin-bottom: 0;
     color: black !important;
 }
+
 img {
     object-fit: cover;
 }
@@ -74,13 +68,7 @@ img {
 
 }
 
-/* ====== home/subscribe  ====== */
-
-.subscribe__container * {
-    margin: 64px 0;
-}
-
-/* === post/single.html === */
+ /*=== post/single.html === */
 .single  {
     display: grid;
     grid-template-columns: 32px 1fr 32px;
@@ -98,6 +86,4 @@ img {
     }
 }
 
-.single__header * {
-    margin: 32px 0;
-}
+
