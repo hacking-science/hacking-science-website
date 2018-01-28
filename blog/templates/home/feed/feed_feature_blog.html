@@ -1,0 +1,26 @@
+{% block p %}
+<div class="link box">
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-128x128">
+                <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong><a href="{% url 'post' post_id=p.id %}">{{ p.title }}</a></strong>
+                    <small>8/12/2017</small>
+                    <br>
+                    {{ p.content }}
+                </p>
+            </div>
+            <nav class="level is-mobile">
+                {% for t in p.get_tags %}
+                <a href = "{% url 'tag' tag_id=t.id %}">#{{t.title}}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </article>
+</div>
+{% endblock %}

@@ -11,4 +11,12 @@ def run():
         user.save()
         print("admin created")
     else:
-        print("admin creation failed")
+        from django.contrib.auth.models import User
+
+        user = User.objects.create_user("admin", password="password")
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
+        print("admin created")
+
+    print("admin creation failed")

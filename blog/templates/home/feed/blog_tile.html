@@ -2,7 +2,7 @@
 <a href="{% url 'post' post_id=blog.id %}">
     <div class="tile is-parent">
         <article class="tile is-child notification is-success">
-            <p class="title">{{ blog.title }} </p>
+            <p class="title"><a href="{% url 'post' post_id=p.id %}">{{ blog.title }}</a></p>
             <div class="content">
                 {# <!--<p class="subtitle">{% blog.subtitle %}</p>--> #}
                 <figure class="image">
