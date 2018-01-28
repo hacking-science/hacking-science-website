@@ -166,12 +166,13 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collect static to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, '..', 'blog', 'static'),
+    os.path.join(PROJECT_ROOT, '..', 'breathe', 'static'),
 )
 
 # Simplified static file serving.
