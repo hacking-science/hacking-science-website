@@ -10,9 +10,20 @@ class AbstractBaseClass(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.date_created
+
 
 class Post(AbstractBaseClass):
+    FEATURE = 'FEAT'
+    LINK = 'LINK'
+    POST_TYPES = (
+        (FEATURE, 'feature'),
+        (LINK, 'link'),
+    )
+
     title = models.CharField(max_length=200)
+    type = models.CharField(max_length=4, choices=POST_TYPES, default=FEATURE)
     content = models.TextField()
 
     def __str__(self):
