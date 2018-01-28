@@ -45,6 +45,12 @@ python manage.py migrate
 python manage.py runserver
 ````
 
+## Admin
+Within your virtual environment run the following command
+````bash
+python manage.py createsuperuser
+````
+
 ## Testing
 Within your virtual environment run the following command
 ````bash

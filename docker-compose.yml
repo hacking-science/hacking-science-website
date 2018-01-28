@@ -10,7 +10,8 @@ services:
         - BASE_DIR=/code/
         - DUMP_DIR=/code/dumps
         - VIRTUAL_ENV=hacking-science-website
-
+        - ADMIN_USER=admin
+        - ADMIN_PASSWORD=password
         - DATABASES_ENGINE=django.db.backends.mysql
 #        - DATABASES_ENGINE=django.db.backends.postgresql
         - DATABASES_NAME=hackscience
