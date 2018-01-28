@@ -2,7 +2,7 @@ secret_key: <%= ENV['SECRET_KEY'] %>
 
 debug: False
 
-heroku: True
+heroku: False
 
 db:
     ENGINE: <%= ENV['DATABASES_ENGINE'] %>

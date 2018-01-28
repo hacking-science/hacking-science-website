@@ -1,7 +1,9 @@
 *
 !blog/
+!breathe/
 !hackscience/
 !config/
+!scripts/
 !manage.py
 !requirements.txt
 !run.sh
