@@ -5,6 +5,7 @@
 }
 .navbar-brand .title {
     margin: 0;
+    position: fixed;
 }
 
 .columns.is-mobile.is-centered {
