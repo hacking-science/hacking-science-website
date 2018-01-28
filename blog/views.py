@@ -12,7 +12,7 @@ def index(request):
     reset = False
     tags = Tag.objects.all()
     context = {"posts": posts, "reset": reset, "tags": tags}
-    return render(request, "./home/index.html", context)
+    return render(request, "home/index.html", context)
 
 
 def tag(request, tag_id=None):
@@ -22,7 +22,7 @@ def tag(request, tag_id=None):
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
-        return render(request, "./home/feed.html", context)
+        return render(request, "home/feed.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
 
@@ -36,7 +36,7 @@ def tag(request, tag_id=None):
     #posts = Post.objects.filter(post_tag_set__tag__id=tags.tag_id)
     #reset = True
     #context = {"tags": tags}
-    #return render(request, "./home/feed.html", context)
+    #return render(request, "home/feed.html", context)
 
 
 
@@ -46,7 +46,7 @@ def theEdge(request):
     """Generate the Edge Data"""
 
     context = {}
-    return render(request, "./home/theEdge.html", context)
+    return render(request, "home/theEdge.html", context)
 
 
 def brigdeAcademy(request):
@@ -54,7 +54,7 @@ def brigdeAcademy(request):
     """Generate the Bridge-Academy Data"""
 
     context = {}
-    return render(request, "./home/bridgeAcademy.html", context)
+    return render(request, "home/bridgeAcademy.html", context)
 
 
 def dalstonLibrary(request):
@@ -62,19 +62,19 @@ def dalstonLibrary(request):
     """Generate the Dalston Library Data"""
 
     context = {}
-    return render(request, "./home/dalstonLibrary.html", context)
+    return render(request, "home/dalstonLibrary.html", context)
 
 
 def events(request):
     """Generate the Dalston Library Data"""
     context = {}
-    return render(request, "./home/events.html", context)
+    return render(request, "home/events.html", context)
 
 
 def subscribe(request):
     """Generate Subscribe page"""
     context ={}
-    return render(request, "./home/subscribe.html", context)
+    return render(request, "home/subscribe.html", context)
 
 
 def feed(request):
@@ -95,13 +95,13 @@ def feed(request):
 
 
     context = {"posts": posts, "reset": reset, "tags": tags}
-    return render(request, "./home/feed.html", context)
+    return render(request, "home/feed.html", context)
 
 
 def mapToBreathe(request):
     """Generate A Map to Breathe Page"""
     context={}
-    return render(request, "./home/mapToBreathe.html", context)
+    return render(request, "home/mapToBreathe.html", context)
 
 def post(request, post_id):
     """Generate Feed post page"""
@@ -109,8 +109,8 @@ def post(request, post_id):
 
 
     context = {"post": post}
-    return render(request, "./post/single.html", context)
+    return render(request, "post/single.html", context)
 def about(request):
     """Generate About Page"""
     context={}
-    return render(request, "./home/about.html", context)
+    return render(request, "home/about.html", context)
