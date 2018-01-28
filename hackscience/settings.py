@@ -60,7 +60,7 @@ SECRET_KEY = default_cfg['secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = default_cfg['debug']
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'hacking-science-website.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'hacking-science-website.herokuapp.com', 'hackingscience.io', 'hackingeducation.io', '*.herokuapp.com']
 
 # Application definition
 
