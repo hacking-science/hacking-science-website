@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^subscribe/$', views.subscribe, name='subscribe'),
     url(r'^feed/$', views.feed, name='feed'),
     url(r'^mapToBreathe/$', views.mapToBreathe, name='mapToBreathe'),
+    url(r'about/$', views.about, name='about')
     #url(r'^search/$', views.search, name='search')
     url(r'^post/(?P<post_id>\d+)/$', views.post, name='post')
 ]
