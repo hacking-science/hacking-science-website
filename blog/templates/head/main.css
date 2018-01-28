@@ -5,6 +5,7 @@
 }
 .navbar-brand .title {
     margin: 0;
+    position: fixed;
 }
 
 .columns.is-mobile.is-centered {
@@ -71,4 +72,10 @@ img {
     border-radius: 50px;
     display: inline-block;
 
+}
+
+/* ====== home/subscribe  ====== */
+
+.subscribe__container * {
+    margin: 64px 0;
 }
