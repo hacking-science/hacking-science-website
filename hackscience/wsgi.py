@@ -12,9 +12,10 @@ import sys
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-path = '/home/ubuntu/hacking-science-website'
-if path not in sys.path:
-    sys.path.append(path)
+if os.environ.get('APP_ENV',None)=='prod':
+    path = '/home/ubuntu/hacking-science-website'
+    if path not in sys.path:
+        sys.path.append(path)
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hackscience.settings")
