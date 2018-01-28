@@ -1,54 +1,32 @@
-<nav class="navbar is-transparent is-fixed-top" >
+{% load staticfiles %}
+<nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item title is-4" href="/">Hacking Science</a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            </div>
+            <a href="/" class="navbar-item">
+                <img src="{% static '/blog/img/hacking-science-logo.png' %}" alt="">
+            </a>
+            <button class="button navbar-burger" data-target="blogNavbar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div id="blogNavbar" class="navbar-menu">
             <div class="navbar-start">
-
-                <a class="navbar-item" href="{% url 'index' %}">
-                    Home
-                </a>
-
-                <a class="navbar-item">
-                    About
-                </a>
-
-                <a class="navbar-item" href="{% url 'feed' %}">
-                    Feed
-                </a>
-
+                <a href="{% url 'index' %}" class="navbar-item">Home</a>
+                <a href="{% url 'about' %}" class="navbar-item">About</a>
+                <a href="{% url 'feed' %}" class="navbar-item">Feed</a>
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        Workshops
-                    </a>
+                    <a class="navbar-link">Workshops</a>
                     <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="{% url 'theEdge' %}">
-                            The Edge
-                        </a>
-                        <a class="navbar-item" href="{% url 'bridgeAcademy' %}">
-                            Bridge-Academy
-                        </a>
-                        <a class="navbar-item" href="{% url 'dalstonLibrary' %}">
-                            Dalston Library
-                        </a>
+                        <a href="{% url 'theEdge' %}" class="navbar-item">The Edge</a>
+                        <a href="{% url 'bridgeAcademy' %}" class="navbar-item">Bridge-Academy</a>
+                        <a href="{% url 'dalstonLibrary' %}" class="navbar-item">Dalston Library</a>
                     </div>
                 </div>
-                <a class="navbar-item" href="{% url 'events' %}">
-                    Events
-                </a>
-
-                <a class="navbar-item" href="{% url 'breathe:home' %}">
-                    mapToBreathe
-                </a>
-
-                 <a class="navbar-item" href="{% url 'subscribe' %}">
-                    Subscribe
-                </a>
-
+                <a href="{% url 'events' %}" class="navbar-item">Events</a>
+                <a href="{% url 'breathe:home' %}" class="navbar-item">mapToBreathe</a>
+                <a href="{% url 'subscribe' %}" class="navbar-item">Subscribe</a>
             </div>
         </div>
     </div>
