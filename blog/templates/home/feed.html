@@ -1,6 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="columns is-mobile is-centered">
+<!--blogsearchingfunctionailtyr -->
+    <section class="section">
+    <div class="container">
+<p class="title is-4">Feed</p>
+    <form  class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
+       {% csrf_token %}
+       <div class="input-group">
+         <input class="form-control form-control-lg" type="text" placeholder="Search" id="searchbar" name="searchbar" value="">
+         <span class="input-group-btn">
+           <button class="btn btn-info" type="submit">Go!</button>
+         </span>
+       </div>
+    </form>
+
+    <hr>
+        Tags: {% for tag in tags %}
+<a href = "{% url 'tag' tag_id=tag.id %}">
+    <strong>{{tag.title}}</strong>
+</a>{% endfor %}{% if reset %}
+<a href = "{% url 'feed' %}">Unapply tag</a>
+{% endif %}
+<hr>
+<table>
+
+    {% for p in posts %}
+     {% include '../body/blog_tile.html' with blog=p %}
+    <tr>
+        <td>{{p.title}}</td>
+        <td>{{p.content}}</td>
+        <td>
+            {% for t in p.get_tags %}
+            <a href = "{% url 'tag' tag_id=t.id %}">
+                <strong>{{t.title}}</strong>
+            </a>,
+ <!-- end of blogsearchingfunctionailtyr -->       
+<!-- master -->
+          <div class="columns is-mobile is-centered">
         <div class="column is-half is-narrow">
             {% for p in posts %}
                 {% if p.type == "FEAT" %}
@@ -60,7 +96,11 @@
                 </article>
             </div>
                 {% endif %}
-            {% endfor %}
+          <!--- end of master -->
+
+          
+          
+          {% endfor %}
 
             <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             <a class="pagination-previous">Previous</a>
