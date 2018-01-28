@@ -7,6 +7,16 @@
     <section class="section">
     <div class="container">
 <p class="title is-4">Feed</p>
+    <form  class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
+       {% csrf_token %}
+       <div class="input-group">
+         <input class="form-control form-control-lg" type="text" placeholder="Search" id="searchbar" name="searchbar" value="">
+         <span class="input-group-btn">
+           <button class="btn btn-info" type="submit">Go!</button>
+         </span>
+       </div>
+    </form>
+
     <hr>
         Tags: {% for tag in tags %}
 <a href = "{% url 'tag' tag_id=tag.id %}">
