@@ -26,6 +26,20 @@ def tag(request, tag_id=None):
     else:
         return HttpResponseRedirect(reverse(index))
 
+#def search(request, tag_id=None):
+    #"""Filter the news feed according to the user input in the search bar"""
+
+    #tag_title = request.GET['searchbar']
+    #tags = Tag.objects.filter(title=tag_title)
+
+    #tags = Tag.objects.exclude(id=tag_id)
+    #posts = Post.objects.filter(post_tag_set__tag__id=tags.tag_id)
+    #reset = True
+    #context = {"tags": tags}
+    #return render(request, "./home/feed.html", context)
+
+
+
 
 def theEdge(request):
 
@@ -65,9 +79,21 @@ def subscribe(request):
 
 def feed(request):
     """Generate hackingScience main feed"""
+
+    #tag_search = request.GET['searchbar']
+    if 'searchbar' in request.GET:
+        tag_search = request.GET['searchbar']
+        tags = Tag.objects.filter(title=tag_search)
+
+
+    else:
+        tags = Tag.objects.all()
+
     posts = Post.objects.all()
     reset = False
-    tags = Tag.objects.all()
+
+
+
     context = {"posts": posts, "reset": reset, "tags": tags}
     return render(request, "./home/feed.html", context)
 
