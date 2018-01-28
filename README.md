@@ -31,6 +31,7 @@ virtualenv virtualenv-hacking-science-website
 source virtualenv-hacking-science-website/bin/activate 
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py collectstatic
 python manage.py runserver
 ````
 
@@ -42,7 +43,18 @@ mkvirtualenv hacking-science-website
 workon hacking-science-website
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py collectstatic
 python manage.py runserver
+````
+
+
+
+## Admin
+Within your virtual environment run the following command
+````bash
+python manage.py createsuperuser
+# or use our custom script
+python manage.py runscript create_admin
 ````
 
 ## Testing
