@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
+from forms import SubscribeForm
+from models import *
 
 
 # Create your views here.
@@ -85,15 +87,11 @@ def feed(request):
         tag_search = request.GET['searchbar']
         tags = Tag.objects.filter(title=tag_search)
 
-
     else:
         tags = Tag.objects.all()
 
     posts = Post.objects.all()
     reset = False
-
-
-
     context = {"posts": posts, "reset": reset, "tags": tags}
     return render(request, "home/feed.html", context)
 
@@ -103,14 +101,41 @@ def mapToBreathe(request):
     context={}
     return render(request, "home/mapToBreathe.html", context)
 
+
 def post(request, post_id):
     """Generate Feed post page"""
     post = Post.objects.get(id=post_id)
-
-
     context = {"post": post}
-    return render(request, "    post/single.html", context)
+    return render(request, "post/single.html", context)
+
+
 def about(request):
     """Generate About Page"""
     context={}
     return render(request, "home/about.html", context)
+
+
+def add_subscriber(request):
+    """User can subscribe to hackingEducation, they enter manually their name and email"""
+
+    add_s = SubscribeForm(request.POST)
+    print request.POST['add-first-name']
+    print request.POST['add-second-name']
+    print request.POST['add-email-address']
+
+    if add_s:
+        subscribe_success = True
+
+        Subscribe.objects.create(first_name=request.POST['add-first-name'],
+                                 last_name=request.POST['add-second-name'],
+                                 email_address=request.POST['add-email-address']
+                                )
+
+        context = {
+            'subscribe_success':subscribe_success
+        }
+
+        return render(request, 'home/subscribeSuccess.html', context)
+
+    else:
+        return HttpResponseRedirect(reverse(index))
