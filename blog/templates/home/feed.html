@@ -2,6 +2,19 @@
 
 {% block content %}
 
+<form  class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
+   {% csrf_token %}
+   <div class="input-group">
+     <input class="form-control form-control-lg" type="text" placeholder="Search" id="searchbar" name="searchbar" value="">
+     <span class="input-group-btn">
+       <button class="btn btn-info" type="submit">Go!</button>
+     </span>
+   </div>
+</form>
+
+
+
+
 <div class="columns is-mobile is-centered">
     <div class="column is-half is-narrow">
         {% for p in posts %}
