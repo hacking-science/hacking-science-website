@@ -10,33 +10,40 @@
                 <h1 class="title">We'll add you to our mailing list and keep you up dated!</h1>
             </div>
         </div>
-        <div class="subscribe__form-container columns">
+        <form name="addSubscribe" role="submit" action="{% url 'add_subscriber' %}" method="POST" id="add-subscriber" accept-charset="utf-8">
+            {% csrf_token %}
             <div class="subscribe__form column is-6 is-offset-3">
+                <div class="field" for="add-first-name">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" id="add-first-name" name="add-first-name" placeholder="First Name">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-user-circle"></i>
+                            </span>
+                        </p>
+                    </div>
                 <div class="field">
                         <p class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Name">
+                            <input class="input" type="text" id="add-second-name" name="add-second-name" placeholder="Last Name">
                             <span class="icon is-small is-left">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fa fa-check"></i>
+                                <i class="fa fa-user-circle"></i>
                             </span>
                         </p>
                     </div>
                     <div class="field">
                         <p class="control has-icons-left">
-                            <input class="input" type="email" placeholder="Email">
+                            <input class="input" type="email" id="add-email-address" name="add-email-address" placeholder="Email">
                             <span class="icon is-small is-left">
-                                <i class="fa fa-lock"></i>
+                                <i class="fa fa-envelope"></i>
                             </span>
                         </p>
                     </div>
                     <div class="control">
-                        <button class="button is-primary">Submit</button>
+                        <button id="submit" type="submit" value="Submit" class="button is-primary">Submit</button>
                     </div>
             </div>
         </div>
     </div>
+</form>
 </div>
 
 
