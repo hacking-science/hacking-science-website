@@ -2,6 +2,11 @@
 
 {% block content %}
 
+ <section class="section">
+    <div class="container">
+<p class="title is-4">Feed</p>
+    <hr>
+
 <form  class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
    {% csrf_token %}
    <div class="input-group">
@@ -35,5 +40,7 @@
         {% endfor %}
     </div>
 </div>
+    </div>
+ </section>
 {% endblock content %}
 
