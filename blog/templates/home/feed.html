@@ -12,7 +12,14 @@
    </div>
 </form>
 
-
+<hr>
+        Tags: {% for tag in tags %}
+<a href = "{% url 'tag' tag_id=tag.id %}">
+    <strong>{{tag.title}}</strong>
+</a>{% endfor %}{% if reset %}
+<a href = "{% url 'feed' %}">Unapply tag</a>
+{% endif %}
+<hr>
 
 
 <div class="columns is-mobile is-centered">
