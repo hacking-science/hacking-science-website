@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django_markdown.models import MarkdownField
 
 
 class AbstractBaseClass(models.Model):
@@ -17,14 +18,19 @@ class AbstractBaseClass(models.Model):
 class Post(AbstractBaseClass):
     FEATURE = 'FEAT'
     LINK = 'LINK'
+    RESOURCEMARKDOWN = 'RESOURCEMARKDOWN'
     POST_TYPES = (
         (FEATURE, 'feature'),
         (LINK, 'link'),
+        (RESOURCEMARKDOWN,'resourcemarkdown')
     )
 
     title = models.CharField(max_length=200)
     type = models.CharField(max_length=4, choices=POST_TYPES, default=FEATURE)
     content = models.TextField()
+
+    if RESOURCEMARKDOWN:
+        content = MarkdownField()
 
     def __str__(self):
         return self.title

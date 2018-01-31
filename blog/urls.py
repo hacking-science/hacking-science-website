@@ -2,7 +2,7 @@ __author__ = 'max'
 from django.conf.urls import url
 
 from blog import views
-
+from django_markdown import flatpages
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),

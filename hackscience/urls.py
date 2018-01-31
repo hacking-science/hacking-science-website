@@ -20,4 +20,5 @@ urlpatterns = [
     url(r"^", include("blog.urls")),
     url(r"^breathe", include("breathe.urls", namespace="breathe")),
     url(r'^admin/', admin.site.urls),
+    url(r'^markdown/', include('django_markdown.urls')),
 ]
