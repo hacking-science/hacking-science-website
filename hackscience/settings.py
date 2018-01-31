@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'blog',
     'breathe',
     'django_extensions',
+    'markdown_deux',
 ]
 
 MIDDLEWARE_CLASSES = [
