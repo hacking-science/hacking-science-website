@@ -14,8 +14,8 @@
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4"><a href="{% url 'post' post_id=p.id %}">{{ p.title }}</a></p>
-                <p class="subtitle is-6">@johnsmith</p>
+                <p class="title is-4">{{ p.title }}</p>
+                <p class="title is-4"><a href="{{ p.content }}">{{ p.content }}</a></p>
             </div>
         </div>
     </div>
