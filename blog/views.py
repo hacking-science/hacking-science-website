@@ -68,7 +68,7 @@ def dalstonLibrary(request):
 def events(request):
     """Generate the Dalston Library Data"""
     context = {}
-    return render(request, "home/events.html", context)
+    return render(request, "home/eventsTemp.html", context)
 
 
 def subscribe(request):
@@ -109,7 +109,7 @@ def post(request, post_id):
 
 
     context = {"post": post}
-    return render(request, "    post/single.html", context)
+    return render(request, "post/single.html", context)
 def about(request):
     """Generate About Page"""
     context={}
