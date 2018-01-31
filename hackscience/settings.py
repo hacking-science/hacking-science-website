@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'blog',
     'breathe',
     'django_extensions',
+    'django_nose'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -86,6 +87,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 ROOT_URLCONF = 'hackscience.urls'
 

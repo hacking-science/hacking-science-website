@@ -8,3 +8,5 @@ dj_database_url
 django-extensions
 gunicorn
 whitenoise
+nose
+django-nose

@@ -60,5 +60,5 @@ python manage.py runscript create_admin
 ## Testing
 Within your virtual environment run the following command
 ````bash
-python manage.py test
+python manage.py test --with-coverage --cover-html --cover-html-dir=coverage
 ````
