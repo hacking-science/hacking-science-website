@@ -106,3 +106,4 @@ db.sqlite3
 /staticfiles/
 .coverage
 coverage/
+coverage.xml
