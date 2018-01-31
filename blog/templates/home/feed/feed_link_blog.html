@@ -18,17 +18,6 @@
                 <p class="subtitle is-6">@johnsmith</p>
             </div>
         </div>
-        <section class="section">
-            <div class="container">
-                <p class="title is-4">Feed</p>
-                Tags:{% for tag in tags %}
-                <a href = "{% url 'tag' tag_id=tag.id %}"><strong>{{tag.title}}</strong></a>
-                {% endfor %}
-                {% if reset %}
-                <a href = "{% url 'feed' %}">Unapply tag</a>
-                {% endif %}
-            </div>
-        </section>
     </div>
 </div>
 {% endblock %}
