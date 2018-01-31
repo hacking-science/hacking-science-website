@@ -10,3 +10,4 @@ gunicorn
 whitenoise
 nose
 django-nose
+coverage
