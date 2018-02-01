@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'hackscience.wsgi.application'
 
 # we are using heroku you need to use this... I hate it but meh
 # https://devcenter.heroku.com/articles/heroku-postgresql#connecting-with-django
-if default_cfg['heroku']:
+if default_cfg['heroku'] == 'True':
     default_cfg['db'] = dj_database_url.config()
 
 # Load up the right setting for sqlite3 db
@@ -180,5 +180,5 @@ STATICFILES_DIRS = (
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+if default_cfg['heroku'] == 'True':
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
