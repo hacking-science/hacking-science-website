@@ -110,7 +110,8 @@ def post(request, post_id):
 
     context = {"post": post}
     return render(request, "post/single.html", context)
-
+  
+  
 def about(request):
     """Generate About Page"""
     context={}
