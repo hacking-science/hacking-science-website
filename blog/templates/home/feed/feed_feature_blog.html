@@ -1,4 +1,5 @@
 {% block p %}
+{% load markdown_deux_tags %}
 <div class="link box">
     <article class="media">
         <div class="media-left">
@@ -12,7 +13,7 @@
                     <strong><a href="{% url 'post' post_id=p.id %}">{{ p.title }}</a></strong>
                     <small>8/12/2017</small>
                     <br>
-                    {{ p.content }}
+                    {{ p.shorten_content|markdown }}
                 </p>
             </div>
             <nav class="level is-mobile">

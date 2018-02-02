@@ -1,4 +1,6 @@
 {% extends '../base.html' %} {% block content %}
+{% load markdown_deux_tags %}
+
 <div class="single">
     <div class="single__container">
         <div class="single__header">
@@ -13,11 +15,24 @@
                 </h2>
             </div>
         </div>
+
+    {% if post.type == "FEAT" %}
+
+        <div class="media-content">
+            <div class="content">
+                {{ post.content|markdown }}
+            </div>
+        </div>
+    {% else %}
+
         <div class="single__content-container">
             <div class="single__content">
                 {{ post.content }}
             </div>
         </div>
+
+    {% endif %}
+
         <div class="single__tags">
             {% for tag in post.get_tags %}
             <div class="single__tag">
