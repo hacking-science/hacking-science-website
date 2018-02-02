@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/hacking-science/hacking-science-website.svg?branch=master)](https://travis-ci.org/hacking-science/hacking-science-website)
 [![codecov](https://codecov.io/gh/hacking-science/hacking-science-website/branch/master/graph/badge.svg)](https://codecov.io/gh/hacking-science/hacking-science-website) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e897ffd108c344e9a81de621df3c2698)](https://www.codacy.com/app/hacking-science/hacking-science-website)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/e897ffd108c344e9a81de621df3c2698)](https://www.codacy.com/app/hacking-science/hacking-science-website)
 [![Known Vulnerabilities](https://snyk.io/test/github/hacking-science/hacking-science-website/badge.svg)](https://snyk.io/test/github/hacking-science/hacking-science-website) 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hacking-science/hacking-science-website)
@@ -60,5 +61,5 @@ python manage.py runscript create_admin
 ## Testing
 Within your virtual environment run the following command
 ````bash
-python manage.py test
+python manage.py test --with-coverage --cover-html --cover-html-dir=coverage
 ````

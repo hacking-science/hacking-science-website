@@ -10,3 +10,7 @@ gunicorn
 whitenoise
 django-markdown
 django-markdown-deux
+nose
+django-nose
+coverage
+

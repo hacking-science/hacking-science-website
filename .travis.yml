@@ -8,9 +8,10 @@ install:
     - pip install -r requirements.txt
 
 script:
-    - python manage.py test
+    - python manage.py test --with-coverage --cover-xml --cover-html --cover-html-dir=coverage
 
 after_success:
     - pip install codecov codacy-coverage
+    - coverage xml
     - codecov -e DJANGO
     - python-codacy-coverage -r coverage.xml
