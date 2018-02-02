@@ -74,7 +74,9 @@ INSTALLED_APPS = [
     'blog',
     'breathe',
     'django_extensions',
-    'django_nose'
+    'markdown_deux',
+    'django_nose',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -116,7 +118,7 @@ WSGI_APPLICATION = 'hackscience.wsgi.application'
 
 # we are using heroku you need to use this... I hate it but meh
 # https://devcenter.heroku.com/articles/heroku-postgresql#connecting-with-django
-if default_cfg['heroku']:
+if default_cfg['heroku'] == 'True':
     default_cfg['db'] = dj_database_url.config()
 
 # Load up the right setting for sqlite3 db
@@ -169,7 +171,7 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Extra places for collect static to find static files.
@@ -180,5 +182,5 @@ STATICFILES_DIRS = (
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+if default_cfg['heroku'] == 'True':
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

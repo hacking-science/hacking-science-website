@@ -8,6 +8,9 @@ dj_database_url
 django-extensions
 gunicorn
 whitenoise
+django-markdown
+django-markdown-deux
 nose
 django-nose
 coverage
+
