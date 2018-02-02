@@ -24,13 +24,17 @@ class Post(AbstractBaseClass):
 
     title = models.CharField(max_length=200)
     type = models.CharField(max_length=4, choices=POST_TYPES, default=FEATURE)
-    content = models.TextField()
+    content = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
 
     def get_tags(self):
         return Tag.objects.filter(post_tag_set__post=self)
+
+    def shorten_content(self):
+        char_limit = 500
+        return self.content[:char_limit] + "..."
 
 
 class Tag(AbstractBaseClass):
