@@ -4,7 +4,7 @@
     <div class="mdc-layout-grid mdc-layout-grid-margin-desktop">
         <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                <form class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
+                <form class="feed__search" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
                     {% csrf_token %}
                     <div class="input-group">
                         <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">

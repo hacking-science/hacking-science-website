@@ -97,6 +97,16 @@ img {
     font-size: 18pt;
     font-weight: 600px;
 }
+/* -------- search ------- */
+.feed__search {
+    margin-left: 7px; 
+}
+
+/* ------- tags ------- */
+.mdc-chip {
+    padding-top: 4px;
+}
+
 .unapply-tag-temp-fix {
     transform: translate3d(0,-5px,0);
 }
