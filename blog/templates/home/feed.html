@@ -1,46 +1,42 @@
-{% extends '../base.html' %}
-{% load markdown_deux_tags %}
-{% block content %}
+{% extends '../base.html' %} {% load markdown_deux_tags %} {% block content %}
 
- <section class="section">
-    <div class="container">
-<p class="title is-4">Feed</p>
-    <hr>
+<section class="feed">
+    <div class="mdc-layout-grid mdc-layout-grid-margin-desktop">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                <form class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                            <input type="text" id="my-text-field-id" class="mdc-text-field__input " name="searchbar" value="">
+                            <div class="mdc-text-field__bottom-line mdc-text-field-bottom-line--active"></div>
+                            <label class="mdc-text-field__label" for="my-text-field-id">Search Tags</label>
+                        </div>
+                        <button class="mdc-button">Go</button>
+                    </div>
+                </form>
+                {% if reset %}
+                <div class="mdc-chip-set">
+                    <div class="mdc-chip">
+                        <i class="material-icons">clear</i>
+                        <div class="mdc-chip__text unapply-tag-temp-fix"><a href="{% url 'feed' %}">Unapply tag</a></div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="mdc-chip-set">
+                    {% for tag in tags %}
+                    <div class="mdc-chip">
+                        <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=tag.id %}">#{{tag.title}}</a></div>
+                    </div>
+                    {% endfor %}
+                </div>
 
-<form  class="mt-2 mt-md-0" action="{% url 'feed' %}" method="GET" accept-charset="utf-8">
-   {% csrf_token %}
-   <div class="input-group">
-     <input class="form-control form-control-lg" type="text" placeholder="Search Tags" id="searchbar" name="searchbar" value="">
-     <span class="input-group-btn">
-       <button class="btn btn-info" type="submit">Go!</button>
-     </span>
-   </div>
-</form>
-
-<hr>
-        Tags: {% for tag in tags %}
-<a href = "{% url 'tag' tag_id=tag.id %}">
-    <strong>{{tag.title}}</strong>
-</a>{% endfor %}{% if reset %}
-<a href = "{% url 'feed' %}">Unapply tag</a>
-{% endif %}
-<hr>
-
-
-<div class="columns is-mobile is-centered">
-    <div class="column is-half is-narrow">
-        {% for p in posts %}
-        {% if p.type == "FEAT" %}
-            {% include './feed/feed_feature_blog.html' with p=p %}
-        {% elif p.type == "LINK" %}
-            {% include './feed/feed_link_blog.html' with p=p %}
-        {% else %}
-            {% include './feed/blog_tile.html' with p=p %}
-        {% endif %}
-        {% endfor %}
+            </div>
+            <div class="feed-content mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                {% for p in posts %} {% if p.type == "FEAT" %} {% include './feed/feed_feature_blog.html' with p=p %} {% elif p.type == "LINK" %} {% include './feed/feed_link_blog.html' with p=p %} {% else %} {% include './feed/blog_tile.html' with p=p %} {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</div>
-    </div>
- </section>
+</section>
 {% endblock content %}
-
