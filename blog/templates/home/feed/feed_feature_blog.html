@@ -1,27 +1,33 @@
-{% block p %}
+{% block p %} 
 {% load markdown_deux_tags %}
-<div class="link box">
-    <article class="media">
-        <div class="media-left">
-            <figure class="image is-128x128">
+<article class="feed-item">
+    <div class="mdc-card feature-card">
+        <div class="mdc-card__media mdc-card__media--16-9">
+            <div class="mdc-card__media-content">
                 <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
-            </figure>
-        </div>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <strong><a href="{% url 'post' post_id=p.id %}">{{ p.title }}</a></strong>
-                    <small>8/12/2017</small>
-                    <br>
-                    {{ p.shorten_content|markdown }}
-                </p>
             </div>
-            <nav class="level is-mobile">
-                {% for t in p.get_tags %}
-                <a href = "{% url 'tag' tag_id=t.id %}">#{{t.title}}</a>
-                {% endfor %}
-            </nav>
         </div>
-    </article>
-</div>
+        <div class="card__primary">
+            <h2 class="card__title">{{ p.title }}</h2>
+            <!-- <h3 class="card__subtitle">By {{ p.author }}</h3> -->
+            <!-- Uncomment and when models.py updated -->
+            <h3 class="card__subtitle mdc-typography--subheading1">By Author<h3>
+        </div>
+        <div class="card__secondary">
+            {{ p.shorten_content|markdown }}
+        </div>
+        <div class="mdc-card__actions">
+            <div class="mdc-card__action-buttons">
+                <button class="mdc-button mdc-card__action mdc-card__action--button">
+                        <a href="{% url 'post' post_id=p.id %}">Read</a>
+                </button>
+            </div>
+            {% for t in p.get_tags %}
+            <div class="mdc-chip">
+                <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=tag.id %}">#{{t.title}}</a></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</article>
 {% endblock %}
