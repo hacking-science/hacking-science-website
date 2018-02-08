@@ -3,6 +3,30 @@ img {
     object-fit: cover;
 }
 /* ================= */
+/* ====== colour modifiers ======= */
+.is-primary {
+    background-color: #00BC9D;
+}
+.is-link {
+    background-color: #1D92EB;
+}
+.is-info {
+    background-color: #1D92EB;
+}
+.is-success {
+    background-color: #20BE51;
+}
+.is-warning {
+    background-color: #FFD84D;
+}
+.is-danger {
+    background-color: #FF264C;
+}
+/* ==================== */
+/* ========== rounded corner modifers ========== */
+.rounded-corners {
+    border-radius: 10px;
+}
 
 /* ====== blog_navbar.html ======== */
 
@@ -158,4 +182,29 @@ img {
 
 .about {
     margin-bottom: 64px;
+    color: white;
+}
+.about__svg img {
+    width: 250px;
+}
+/* Atom image */
+#about__atom {
+    width: 200px
+}
+#about__save-world {
+    width: 220px;
+}
+#about__magazine {
+    width: 200px;
+}
+.about__media {
+    display: grid;
+}
+.about__svg {
+    margin: auto;
+}
+
+/* =========event.html ========= */
+.events-temp-height-90-vh {
+    height: 90vh;
 }
