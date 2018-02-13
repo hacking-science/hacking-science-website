@@ -1,4 +1,4 @@
-{% block p %} 
+{% block p %}
 {% load markdown_deux_tags %}
 <article class="feed-item">
     <div class="mdc-card feature-card">
@@ -24,7 +24,7 @@
             </div>
             {% for t in p.get_tags %}
             <div class="mdc-chip">
-                <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=tag.id %}">#{{t.title}}</a></div>
+                <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=t.id %}">#{{t.title}}</a></div>
             </div>
             {% endfor %}
         </div>
