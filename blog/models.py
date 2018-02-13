@@ -10,9 +10,6 @@ class AbstractBaseClass(models.Model):
     class Meta:
         abstract = True
 
-    def __str__(self):
-        return self.date_created
-
 
 class Post(AbstractBaseClass):
     FEATURE = 'FEAT'
