@@ -1,23 +1,25 @@
-"""hackscience URL Configuration
+"""hackscience URL Configuration"""
+__author__ = 'max'
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
-from django.conf.urls import include, url
+from django.conf.urls import url, include
 from django.contrib import admin
 
+from staticsite.views import index, about
+from hackfeed import views as feedviews
+from events.views import events
+from subscribe.views import subscribe
+
 urlpatterns = [
-    url(r"^", include("blog.urls")),
-    url(r"^breathe", include("breathe.urls", namespace="breathe")),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index, name="index"),
+    url(r'about/$', about, name="about"),
+    url(r'^hackfeed/$', feedviews.feed, name='feed'),
+    url(r'^tag/(?P<tag_id>\d+)', feedviews.tag, name='tag'),
+    url(r'^post/(?P<post_id>\d+)/$', feedviews.post, name='post'),
+    url(r'^theEdge/$', feedviews.theEdge, name='theEdge'),
+    url(r'^bridgeAcademy/$', feedviews.brigdeAcademy, name='bridgeAcademy'),
+    url(r'^dalstonLibrary/$', feedviews.dalstonLibrary, name='dalstonLibrary'),
+    url(r'^events/$', events, name="events"),
+    url(r'^subscribe/$', subscribe, name='subscribe'),
+    url(r"^breathe", include("breathe.urls", namespace="breathe")),
 ]
