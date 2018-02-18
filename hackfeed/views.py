@@ -15,7 +15,7 @@ def tag(request, tag_id=None):
 
         return render(request, "home/feed.html", context)
     else:
-        return HttpResponseRedirect(reverse(index))
+        return HttpResponseRedirect(reverse(feed))
 
 #def search(request, tag_id=None):
     #"""Filter the news feed according to the user input in the search bar"""
