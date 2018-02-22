@@ -179,9 +179,10 @@ STATIC_URL = '/static/'
 
 # Extra places for collect static to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'blog', 'static'),
+    os.path.join(BASE_DIR, 'hackfeed', 'static'),
     os.path.join(BASE_DIR, 'breathe', 'static'),
-    os.path.join(BASE_DIR, 'node_modules', 'material-components-web','dist')
+    os.path.join(BASE_DIR, 'events', 'static'),
+    os.path.join(BASE_DIR, 'staticsite', 'static'),
 )
 
 # Simplified static file serving.
