@@ -110,3 +110,6 @@ coverage.xml
 
 # Node modules
 node_modules
+
+# vscode
+.vscode/
