@@ -1,0 +1,93 @@
+/* ====== base ===== */
+img {
+    object-fit: cover;
+}
+/* ================= */
+
+
+
+ /*=== home/feed/feed_feature.html === */
+ /* feature card */
+.feature {
+    display: inline-block;
+    width: 100%;
+}
+.card__primary {
+    margin: 1rem;
+}
+.card__secondary {
+    margin: 0.2rem 1rem;
+}
+/* Not working currently */
+.mdc-chip-set:first-child {
+    margin-left: 0;
+}
+/*=========== home/feed ==========*/
+
+.feed img {
+    width: 100%;
+}
+
+/* Custom CSS Property for grid margin */
+/* https://material.io/components/web/catalog/layout-grid/ */
+.mdc-layout-grid-margin-desktop {
+    margin: 0 32px;
+}
+
+.card__title {
+    font-size: 18pt;
+    font-weight: 600px;
+}
+/* -------- search ------- */
+.feed__search {
+    margin-left: 7px; 
+}
+
+/* ------- tags ------- */
+.mdc-chip {
+    padding-top: 4px;
+}
+
+.unapply-tag-temp-fix {
+    transform: translate3d(0,-5px,0);
+}
+
+/* spacing between all items in feed content */
+.feed-item {
+    margin: 32px 0;
+}
+
+ /*=== home/feed/feed_feature.html === */
+.card__media-title {
+    padding: 8px 16px;
+    /* Gradient on title in link card */
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+}
+.card__media-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+ /*=== post/single.html === */
+.single  {
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-areas: '. content .';
+    margin: 64px
+}
+
+.single__container {
+    grid-area: content;
+}
+
+@media screen and (min-width: 600px) {
+    .single  {
+        grid-template-columns: 1fr 600px 1fr;
+    }
+}
+
+
+
+
