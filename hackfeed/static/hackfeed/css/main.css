@@ -4,7 +4,9 @@ img {
 }
 /* ================= */
 
-
+.feed {
+    background-color: #EEEEEE;
+}
 
  /*=== home/feed/feed_feature.html === */
  /* feature card */
@@ -46,6 +48,7 @@ img {
 /* ------- tags ------- */
 .mdc-chip {
     padding-top: 4px;
+    background-color: white;
 }
 
 .unapply-tag-temp-fix {
