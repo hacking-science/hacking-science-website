@@ -13,7 +13,7 @@ def tag(request, tag_id=None):
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
-        return render(request, "home/feed.html", context)
+        return render(request, "hackfeed/feed.html", context)
     else:
         return HttpResponseRedirect(reverse(feed))
 
@@ -83,4 +83,4 @@ def post(request, post_id):
 
     context = {"post": post}
     return render(request, "hackfeed/post/single.html", context)
-  
+
