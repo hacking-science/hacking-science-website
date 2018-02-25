@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="subscribe">
+    <div class="subscribe__container container is-fluid">
+        <div class="subscribe__title-container columns">
+            <div class="subscribe__title column is-6 is-offset-3">
+                <h1 class="title">Subscribe to hackingEducation!</h1>
+                <h1 class="title">We'll add you to our mailing list and keep you up dated!</h1>
+            </div>
+        </div>
+        <div class="subscribe__form-container columns">
+            <div class="subscribe__form column is-6 is-offset-3">
+                <div class="field">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Name">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fa fa-check"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="email" placeholder="Email">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary">Submit</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

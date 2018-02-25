@@ -1,0 +1,34 @@
+{% load staticfiles %}
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/" class="navbar-item has-text-weight-bold is-size-5">
+                    <!-- <img src="{% static '/blog/img/hacking-science-logo.png' %}" alt=""> -->
+                    HACKING EDUCATION
+                </a>
+                <div class="navbar-burger" data-target="blogNavbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                </div>
+            </div>
+            <div id="blogNavbar" class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="{% url 'about' %}" class="navbar-item">ABOUT</a>
+                    <a href="{% url 'feed' %}" class="navbar-item">HACKFEED</a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">WORKSHOPS</a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a href="{% url 'theEdge' %}" class="navbar-item">THE EDGE</a>
+                            <a href="{% url 'bridgeAcademy' %}" class="navbar-item">BRIDGE ACADEMY</a>
+                            <a href="{% url 'dalstonLibrary' %}" class="navbar-item">DALSTON LIBRARY</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'events' %}" class="navbar-item">EVENTS</a>
+                    <a href="{% url 'breathe:home' %}" class="navbar-item">mapToBreathe</a>
+                    <a href="{% url 'subscribe' %}" class="navbar-item">SUBSCRIBE</a>
+                </div>
+            </div>
+        </div>
+    </nav>
