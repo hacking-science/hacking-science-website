@@ -6,7 +6,6 @@ from django.contrib import admin
 
 from staticsite.views import index, about
 from hackfeed import views as feedviews
-from events.views import events
 from subscribe.views import subscribe
 
 urlpatterns = [
@@ -19,7 +18,7 @@ urlpatterns = [
     url(r'^theEdge/$', feedviews.theEdge, name='theEdge'),
     url(r'^bridgeAcademy/$', feedviews.brigdeAcademy, name='bridgeAcademy'),
     url(r'^dalstonLibrary/$', feedviews.dalstonLibrary, name='dalstonLibrary'),
-    url(r'^events/$', events, name="events"),
+    url(r'^events/$', feedviews.events, name="events"),
     url(r'^subscribe/$', subscribe, name='subscribe'),
     url(r"^breathe", include("breathe.urls", namespace="breathe")),
 ]

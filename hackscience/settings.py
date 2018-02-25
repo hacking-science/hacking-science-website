@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hackfeed',
     'breathe',
-    'events',
     'staticsite',
     'subscribe',
     'django_extensions',
@@ -181,7 +180,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'hackfeed', 'static'),
     os.path.join(BASE_DIR, 'breathe', 'static'),
-    os.path.join(BASE_DIR, 'events', 'static'),
     os.path.join(BASE_DIR, 'staticsite', 'static'),
 )
 

@@ -84,3 +84,8 @@ def post(request, post_id):
     context = {"post": post}
     return render(request, "hackfeed/post/single.html", context)
 
+  
+def events(request):
+    """Generate the Events"""
+    context = {}
+    return render(request, "events/eventsTemp.html", context)
