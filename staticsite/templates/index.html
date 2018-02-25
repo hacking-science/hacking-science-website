@@ -1,0 +1,112 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="home">
+    <section class="home__cover">
+        <div class="home__cover-image">
+            <img src="{% static 'staticsite/img/class.jpg' %}" alt="space X">
+        </div>
+        <div class="home__welcome">
+            <h1>Welcome to Hacking Education</h1>
+            <h2>We're an eduational charity that promotes access to education</h2>
+        </div>
+    </section>
+    <section class="home__about">
+        <div class="home__about-container">
+                <div class="home__about-item" id="science">
+                    <a href="{% url 'about' %}">
+
+                    <div class="home__about-icon">
+                        <object type="image/svg+xml" data="{% static 'staticsite/svg/molecule.svg' %}" class="home__about-svg"></object>
+                    </div>
+                    <div class="home__about-title">
+                        <h2>Informal science</h2>
+                    </div>
+                    <div class="home__about-description">
+                        <p>Learning sessions at schools, libraries and youth centres in Hackney where students are introduced to a new area of science and nudged towards independently researching the area as well as career opportunities in the field.</p>
+                    </div>
+                </a>
+
+                </div>
+                <div class="home__about-item" id="coding">
+                        <a href="{% url 'about' %}">
+
+                    <div class="home__about-icon">
+                        <object type="image/svg+xml" data="{% static 'staticsite/svg/coding.svg' %}" class="home__about-svg"></object>
+                    </div>
+                    <div class="home__about-title">
+                        <h2>Coding</h2>
+                    </div>
+                    <div class="home__about-description">
+                        <p>Programming sessions integrated with the science sessions where young people create their own electronics project using Raspberry Pis, MicroBits and Arduinos under the supervision of mentors.</p>
+                    </div>
+                </a>
+
+                </div>
+                    <div class="home__about-item" id="environment">
+                            <a href="{% url 'about' %}">
+
+                        <div class="home__about-icon">
+                            <object type="image/svg+xml" data="{% static 'staticsite/svg/sprout.svg' %}" class="home__about-svg"></object>
+                        </div>
+                        <div class="home__about-title">
+                            <h2>Environment</h2>
+                        </div>
+                        <div class="home__about-description">
+                            <p>Linking to the science sessions but dedicated session discussing environmental issues, solutions and the urgency with which we must act on those solutions.</p>
+                        </div>
+                    </a>
+
+                    </div>
+                        <div class="home__about-item" id="creative-spaces">
+                                <a href="{% url 'about' %}">
+
+                            <div class="home__about-icon">
+                                <object type="image/svg+xml" data="{% static 'staticsite/svg/painting-palette.svg' %}" class="home__about-svg"></object>
+                            </div>
+                            <div class="home__about-title">
+                                <h2>Creative Spaces</h2>
+                            </div>
+                            <div class="home__about-description">
+                                <p>Reimagining libraries as creative spaces where young people from the local community can collaborate on projects that explore ways to use science to make cool art.</p>
+                            </div>
+                        </a>
+
+                        </div>
+                            <div class="home__about-item" id="history">
+                                    <a href="{% url 'about' %}">
+
+                                <div class="home__about-icon">
+                                    <object type="image/svg+xml" data="{% static 'staticsite/svg/presentation.svg' %}" class="home__about-svg"></object>
+                                </div>
+                                <div class="home__about-title">
+                                    <h2>History</h2>
+                                </div>
+                                <div class="home__about-description">
+                                    <p>Lecture series on the History of Race in the UK and Civil Rights. 100 sixth form students attend a 3-day event where we create a free online course on the history of race in the UK.</p>
+                                </div>
+                            </a>
+
+                            </div>
+                                <div class="home__about-item" id="magazine">
+                                        <a href="{% url 'about' %}">
+
+                                    <div class="home__about-icon">
+                                        <object type="image/svg+xml" data="{% static 'staticsite/svg/magazine.svg' %}" class="home__about-svg"></object>
+                                    </div>
+                                    <div class="home__about-title">
+                                        <h2>Magazine</h2>
+                                    </div>
+                                    <div class="home__about-description">
+                                        <p>Producing printed media aimed at young people and parents discussing topical scientific topics through articles, comic strips and illustrations.</p>
+                                    </div>
+                                </a>
+
+                                </div>
+        </div>
+    </section>
+</div>
+    
+{% endblock %}

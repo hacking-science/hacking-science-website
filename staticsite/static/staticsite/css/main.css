@@ -1,0 +1,126 @@
+/* NAVBAR TEMPORARILY HERE */
+@import url('https://fonts.googleapis.com/css?family=Oswald:500');
+
+nav {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/* HOME */
+
+/* OVERRIDE BULMA */
+/* NAVBAR */
+/* .navbar {
+    background-color: transparent !important;
+} */
+/* OVERRIDE BULMA */
+
+.home__cover {
+    position: relative;
+    height: 384px;
+}
+.home__cover-image {
+    position: absolute;
+    height: 100%;
+}
+
+.home__cover img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.home__welcome {
+    position: absolute;
+    margin: 32px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+.home__welcome * {
+    background-color: rgba(202, 41, 41, 0.7);
+    display: inline-block;
+    padding: 0 12px;
+}
+
+.home__welcome h1 {
+    font-size: 32pt;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.home__welcome h2 {
+    font-size: 18pt;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 8px;
+}
+
+.home__about {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 32px;
+} 
+
+.home__about-item {
+    text-align: center;
+    padding: 32px;
+    margin: 32px 0;
+}
+.home__about-item a {
+    color: white;
+}
+/* Apply style to direct children */
+.home__about-item a > div {
+    margin: 16px 0;
+}
+
+.home__about-title h2 {
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.home__about-icon object {
+    width: 64px;
+}
+
+/* Individual item color styles */
+#science {
+    background-color: #1E88E5;
+}
+#coding {
+    background-color: #F44336;
+}
+#environment {
+    background-color: #43A047;
+}
+#creative-spaces {
+    background-color: #FFAB00;
+}
+#history {
+    background-color: #BA68C8;
+}
+#magazine {
+    background-color: #00BCD4;
+}
+
+@media screen and (min-width : 768px) {
+    .home__about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 32px;
+        grid-auto-rows: 1fr;
+    }
+    .home__welcome {
+        margin: 64px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .home__about-container {
+        margin-left: 64px;
+        margin-right: 64px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .home__welcome {
+        margin: 96px;
+    }
+} 
