@@ -1,64 +1,112 @@
 {% extends '../base.html' %}
+{% load static %}
 
 {% block content %}
 
-
-<section class="section">
-    <div class="container">
-        <div class="tile is-ancestor">
-            <div class="tile is-vertical is-8">
-                <div class="tile">
-                    <div class="tile is-parent is-vertical">
-                        <article class="tile is-child notification is-primary">
-                            <p class="title">About Us...</p>
-                            <p class="subtitle">Here at Hacking Science we want to inspire, and empower young people from disadvantaged backgrounds so they can achieve whatever they set their mind to and fulfill their potential.
-...</p>
-                        </article>
-                        <article class="tile is-child notification is-warning">
-                            <p class="title">Events...</p>
-                            <p class="subtitle">Join us for a hackingScience event in your local community...</p>
-                        </article>
-                    </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child notification is-info">
-                            <p class="title">Science in the news...</p>
-                            <p class="subtitle">With an image</p>
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/640x480.png">
-                            </figure>
-                        </article>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child notification is-danger">
-                        <p class="title">Raspberry Pi...</p>
-                        <p class="subtitle">Projects you can do yourself! Check out https://www.raspberrypi.org/</p>
-                        <div class="content">
-                            <p>Learn more about this small computer you can learn programming with, choose a project https://projects.raspberrypi.org/en/projects, or think of one yourself. Come to one of our drop in session for help, and see how we are using the computers for our own projects.  </p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="tile is-parent">
-                  <article class="tile is-child notification is-success">
-                    <p class="title">Latest Hacking Science News</p>
-                    <div class="content">
-                            <p class="subtitle">News bulletin #1</p>
-                            <figure class="image">
-                                    <img src="http://via.placeholder.com/250x150">
-
-                                  </figure>
-
-                      <p>We will now be having workshops at Bridge-Academy! Continuing to focus on inequality in STEM, there will be a 12 week prpulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-                      <p class="subtitle">News bulletin #2</p>
-
-                      <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-                    </div>
-                  </article>
-                </div>
+<div class="home">
+    <section class="home__cover">
+        <div class="home__cover-image">
+            <img src="{% static 'blog/img/class.jpg' %}" alt="class room">
         </div>
-        <div class="highlight-full"></div>
-    </div>
-</section>
+        <div class="home__welcome">
+            <h1>Welcome to Hacking Education</h1>
+            <h2>We're an eduational charity that promotes access to education</h2>
+        </div>
+    </section>
+    <section class="home__about">
+        <div class="home__about-container">
+                <div class="home__about-item" id="science">
+                    <a href="{% url 'about' %}">
+
+                    <div class="home__about-icon">
+                        <object type="image/svg+xml" data="{% static 'blog/svg/molecule.svg' %}" class="home__about-svg"></object>
+                    </div>
+                    <div class="home__about-title">
+                        <h2>Informal science</h2>
+                    </div>
+                    <div class="home__about-description">
+                        <p>Learning sessions at schools, libraries and youth centres in Hackney where students are introduced to a new area of science and nudged towards independently researching the area as well as career opportunities in the field.</p>
+                    </div>
+                </a>
+
+                </div>
+                <div class="home__about-item" id="coding">
+                        <a href="{% url 'about' %}">
+
+                    <div class="home__about-icon">
+                        <object type="image/svg+xml" data="{% static 'blog/svg/coding.svg' %}" class="home__about-svg"></object>
+                    </div>
+                    <div class="home__about-title">
+                        <h2>Coding</h2>
+                    </div>
+                    <div class="home__about-description">
+                        <p>Programming sessions integrated with the science sessions where young people create their own electronics project using Raspberry Pis, MicroBits and Arduinos under the supervision of mentors.</p>
+                    </div>
+                </a>
+
+                </div>
+                    <div class="home__about-item" id="environment">
+                            <a href="{% url 'about' %}">
+
+                        <div class="home__about-icon">
+                            <object type="image/svg+xml" data="{% static 'blog/svg/sprout.svg' %}" class="home__about-svg"></object>
+                        </div>
+                        <div class="home__about-title">
+                            <h2>Environment</h2>
+                        </div>
+                        <div class="home__about-description">
+                            <p>Linking to the science sessions but dedicated session discussing environmental issues, solutions and the urgency with which we must act on those solutions.</p>
+                        </div>
+                    </a>
+
+                    </div>
+                        <div class="home__about-item" id="creative-spaces">
+                                <a href="{% url 'about' %}">
+
+                            <div class="home__about-icon">
+                                <object type="image/svg+xml" data="{% static 'blog/svg/painting-palette.svg' %}" class="home__about-svg"></object>
+                            </div>
+                            <div class="home__about-title">
+                                <h2>Creative Spaces</h2>
+                            </div>
+                            <div class="home__about-description">
+                                <p>Reimagining libraries as creative spaces where young people from the local community can collaborate on projects that explore ways to use science to make cool art.</p>
+                            </div>
+                        </a>
+
+                        </div>
+                            <div class="home__about-item" id="history">
+                                    <a href="{% url 'about' %}">
+
+                                <div class="home__about-icon">
+                                    <object type="image/svg+xml" data="{% static 'blog/svg/presentation.svg' %}" class="home__about-svg"></object>
+                                </div>
+                                <div class="home__about-title">
+                                    <h2>History</h2>
+                                </div>
+                                <div class="home__about-description">
+                                    <p>Lecture series on the History of Race in the UK and Civil Rights. 100 sixth form students attend a 3-day event where we create a free online course on the history of race in the UK.</p>
+                                </div>
+                            </a>
+
+                            </div>
+                                <div class="home__about-item" id="magazine">
+                                        <a href="{% url 'about' %}">
+
+                                    <div class="home__about-icon">
+                                        <object type="image/svg+xml" data="{% static 'blog/svg/magazine.svg' %}" class="home__about-svg"></object>
+                                    </div>
+                                    <div class="home__about-title">
+                                        <h2>Magazine</h2>
+                                    </div>
+                                    <div class="home__about-description">
+                                        <p>Producing printed media aimed at young people and parents discussing topical scientific topics through articles, comic strips and illustrations.</p>
+                                    </div>
+                                </a>
+
+                                </div>
+        </div>
+    </section>
+</div>
     
 {% endblock %}
