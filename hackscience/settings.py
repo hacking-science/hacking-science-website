@@ -178,7 +178,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'blog', 'static'),
     os.path.join(BASE_DIR, 'breathe', 'static'),
-    os.path.join(BASE_DIR, 'node_modules', 'material-components-web','dist')
 )
 
 # Simplified static file serving.
