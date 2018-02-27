@@ -22,11 +22,13 @@
                         <a href="{% url 'post' post_id=p.id %}">Read</a>
                 </button>
             </div>
-            {% for t in p.get_tags %}
+            <div class="mdc-card__action-icons">
+            {% for t in p.get_tags|slice:":4" %}
             <div class="mdc-chip">
                 <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=t.id %}">#{{t.title}}</a></div>
             </div>
             {% endfor %}
+            </div>
         </div>
     </div>
 </article>
