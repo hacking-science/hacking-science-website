@@ -5,15 +5,10 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
 
-
-# Create your views here.
 def index(request):
-    posts = Post.objects.all()
-    reset = False
-    tags = Tag.objects.all()
-    context = {"posts": posts, "reset": reset, "tags": tags}
+    """Generate Home Page"""
+    context = {}
     return render(request, "home/index.html", context)
-
 
 def tag(request, tag_id=None):
     if tag_id:
