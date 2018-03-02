@@ -111,4 +111,8 @@ coverage.xml
 # Node modules
 node_modules
 
+# Silly Macs
 .DS_Store
+
+# VS_Code
+.vscode
