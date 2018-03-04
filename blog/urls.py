@@ -7,7 +7,7 @@ from blog import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^blog/$', views.feed, name='feed'),
-    url(r'^tag/(?P<tag_id>\d+)', views.tag, name='tag'),
+    url(r'^blog/(?P<tag_id>\d+)', views.tag, name='tag'),
     url(r'^theEdge/$', views.theEdge, name='theEdge'),
     url(r'^bridgeAcademy/$', views.brigdeAcademy, name='bridgeAcademy'),
     url(r'^dalstonLibrary/$', views.dalstonLibrary, name='dalstonLibrary'),
