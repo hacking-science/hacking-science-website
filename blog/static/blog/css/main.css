@@ -208,8 +208,9 @@ nav {
 /*=========== home/feed ==========*/
 
 
-.feed img {
+.feed-item img {
     width: 100%;
+    height: 100%;
 }
 
 /* Custom CSS Property for grid margin */
@@ -255,6 +256,15 @@ nav {
     justify-content: flex-end;
 }
 
+.crop-img {
+    overflow: hidden;
+}
+
+.center-img {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
  /*=== post/single.html === */
 .single  {
     display: grid;
