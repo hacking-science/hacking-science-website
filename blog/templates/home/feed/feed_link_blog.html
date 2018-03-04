@@ -1,25 +1,35 @@
-{% block p %} {% load markdown_deux_tags %}
+{% block p %}
+{% load markdown_deux_tags %}
 <article class="feed-item">
-    <div class="mdc-card link-card">
-        <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url('https://i.pinimg.com/736x/85/d0/10/85d010e7e5162cf4994370e2d9d41b62--funny-inspirational-quotes-smart-people.jpg');">
-            <div class="card__media-content mdc-card__media-content">
-                <div class="card__media-title mdc-typography--subheading2">
-                    <h2 class="card__title">{{ p.title }}</h2>
-                </div>
+    <div class="mdc-card feature-card">
+        <div class="mdc-card__media mdc-card__media--16-9">
+            <div class="mdc-card__media-content center-img crop-img">
+                {% if not p.image_url %}
+                    <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
+                {% else %}
+                    <img src='{{ p.image_url }}' alt='{{ p.title }}'>
+                {% endif %}
             </div>
         </div>
-        <div class="mdc-card__actions mdc-card__action-icons">
+        <div class="card__primary">
+            <h2 class="card__title">{{ p.title }}</h2>
+            <h3 class="card__subtitle">By {{ p.author }}</h3>
+        </div>
+        <div class="card__secondary">
+            <h3 class="card__subtitle">{{ p.summary }}</h3>
+        </div>
+        <div class="mdc-card__actions">
             <div class="mdc-card__action-buttons">
                 <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <a href="{{ p.content }}">Read</a>
+                    <a href='{{ p.url }}'>Read</a>
                 </button>
             </div>
             <div class="mdc-card__action-icons">
-                {% for t in p.get_tags|slice:":4" %}
-                <div class="mdc-chip">
-                    <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=t.id %}">#{{t.title}}</a></div>
-                </div>
-                {% endfor %}
+            {% for t in p.get_tags|slice:":4" %}
+            <div class="mdc-chip">
+                <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=t.id %}">#{{t.title}}</a></div>
+            </div>
+            {% endfor %}
             </div>
         </div>
     </div>
