@@ -116,6 +116,3 @@ node_modules
 
 # VS_Code
 .vscode
-
-# Migrations
-blog/migrations/*
