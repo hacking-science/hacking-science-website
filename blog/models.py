@@ -41,7 +41,7 @@ class Post(AbstractBaseClass):
 
     # Is there a better way of writing this?
     def get_content_type(self):
-        return str(ContentType.objects.get_for_model(self))
+        return self.__class__.__name__.lower()
 
 
 class Feature(Post):

@@ -4,10 +4,10 @@
     <div class="mdc-card feature-card">
         <div class="mdc-card__media mdc-card__media--16-9">
             <div class="mdc-card__media-content center-img crop-img">
-                {% if not p.image_url %}
+                {% if not p.feature.image_url %}
                     <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
                 {% else %}
-                    <img src='{{ p.image_url }}' alt='{{ p.title }}'>
+                    <img src='{{ p.feature.image_url }}' alt='{{ p.title }}'>
                 {% endif %}
             </div>
         </div>
