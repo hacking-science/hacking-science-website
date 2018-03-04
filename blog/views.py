@@ -5,21 +5,27 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
 
+
 def index(request):
     """Generate Home Page"""
     context = {}
     return render(request, "home/index.html", context)
 
+
 def tag(request, tag_id=None):
+    print("tag view")
     if tag_id:
-        tags = Tag.objects.exclude(id=tag_id)
-        posts = Post.objects.select_subclasses()
+        print("has id")
+        posts = Post.objects.filter(tags=tag_id)
+        # tags = Tag.objects.exclude(tags=tag_id)
+        # posts = Post.objects.filter(tag_id=tag_id)
         reset = True
-        context = {"posts": posts, "reset": reset, "tags": tags}
+        context = {"posts": posts, "reset": reset}
 
         return render(request, "home/feed.html", context)
     else:
         return HttpResponseRedirect(reverse(index))
+
 
 def theEdge(request):
 
@@ -61,7 +67,7 @@ def feed(request):
     """Generate hackingScience main feed"""
 
     tags = Tag.objects.all()
-    posts = Post.objects.select_subclasses()
+    posts = Post.objects.all()
     reset = False
 
     context = {"posts": posts, "reset": reset, "tags": tags}
@@ -73,16 +79,16 @@ def mapToBreathe(request):
     context={}
     return render(request, "home/mapToBreathe.html", context)
 
+
 def post(request, post_id):
     """Generate Feed post page"""
     post = Post.objects.get(id=post_id)
 
-
     context = {"post": post}
     return render(request, "post/single.html", context)
-  
-  
+
+
 def about(request):
     """Generate About Page"""
-    context={}
+    context = {}
     return render(request, "home/about.html", context)

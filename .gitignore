@@ -116,3 +116,4 @@ node_modules
 
 # VS_Code
 .vscode
+static/
