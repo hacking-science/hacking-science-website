@@ -13,5 +13,3 @@ django-markdown-deux
 nose
 django-nose
 coverage
-django-model-utils
-pillow
