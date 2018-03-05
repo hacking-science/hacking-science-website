@@ -92,3 +92,42 @@ def about(request):
     """Generate About Page"""
     context = {}
     return render(request, "home/about.html", context)
+
+
+def informalsci(request):
+    """Generate informal science page"""
+    context={}
+    return render(request, "home/informalsci.html", context)
+
+
+def coding(request):
+    """Generate coding page"""
+    context={}
+    return render(request, "home/coding.html", context)
+
+
+def environment(request):
+    """Generate environment page"""
+    context={}
+    return render(request, "home/environment.html", context)
+
+
+def creativespaces(request):
+    """Generate creativespaces page"""
+    context={}
+    return render(request, "home/creativespaces.html", context)
+
+
+def history(request):
+    """Generate history page"""
+    context={}
+    return render(request, "home/history.html", context)
+
+
+def magazine(request):
+    """Generate magazine page"""
+    context={}
+    return render(request, "home/magazine.html", context)
+
+
+
