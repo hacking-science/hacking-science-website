@@ -1,15 +1,12 @@
 {% block p %}
-{% load markdown_deux_tags %}
-<article class="feed-item">
+<article class="feed-item video-item">
     <div class="mdc-card feature-card">
         <div class="mdc-card__media mdc-card__media--16-9">
-            <div class="mdc-card__media-content center-img crop-img">
-                {% if not p.feature.image_url %}
-                    <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/12FB4/production/_99084777_mediaitem99084776.jpg" alt="Image">
-                {% else %}
-                    <img src='{{ p.feature.image_url }}' alt='{{ p.title }}'>
-                {% endif %}
+            <div class="mdc-card__media-content">
+                <div class="youtube" data-embed='{{ p.video.video_id }}'>
+                    <div class="play-button"></div>
             </div>
+        </div>
         </div>
         <div class="card__primary">
             <h2 class="card__title">{{ p.title }}</h2>
@@ -19,11 +16,6 @@
             <h3 class="feed-card__summary card__subtitle">{{ p.summary }}<h3>
         </div>
         <div class="mdc-card__actions">
-            <div class="mdc-card__action-buttons">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                        <a href="{% url 'post' post_id=p.id %}">Read</a>
-                </button>
-            </div>
             <div class="mdc-card__action-icons">
             {% for t in p.get_tags|slice:":4" %}
             <div class="mdc-chip">
