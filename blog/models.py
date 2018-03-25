@@ -3,7 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 # from model_utils.managers import InheritanceManager
+
 from martor.models import MartorField
+
+import urllib2
+from bs4 import BeautifulSoup
 
 
 
@@ -54,11 +58,22 @@ class Video(Post):
 
 
 class Link(Post):
+
     url = models.CharField(max_length=500)
-    image_url = models.CharField(max_length=512)
 
+    def get_og_image_url(self):
+        print(self.url)
+        """Generates an image from url if og:image meta tag exists"""
+        bs = BeautifulSoup(urllib2.urlopen(self.url))
 
-# class Location(AbstractBaseClass):
+        metatag = bs.find("meta", {"property": "og:image"})
+
+        if metatag is not None:
+            return metatag["content"]
+        else:
+            return "https://i.pinimg.com/736x/85/d0/10/85d010e7e5162cf4994370e2d9d41b62--funny-inspirational-quotes-smart-people.jpg"
+
+ # class Location(AbstractBaseClass):
 #     title = models.CharField(max_length=100)
 
 

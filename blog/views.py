@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
+import urllib2
+from bs4 import BeautifulSoup
 
 def index(request):
     """Generate Home Page"""
@@ -13,7 +15,7 @@ def index(request):
 def tag(request, tag_id=None):
     if tag_id:
         tags = Tag.objects.exclude(id=tag_id)
-        posts = Post.objects.filter(post_tag_set__tag__id=tag_id)
+        posts = Post.objects.filter(tags=tag_id)
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
@@ -32,8 +34,6 @@ def tag(request, tag_id=None):
     #reset = True
     #context = {"tags": tags}
     #return render(request, "home/feed.html", context)
-
-
 
 
 def theEdge(request):
@@ -86,7 +86,6 @@ def feed(request):
 
     posts = Post.objects.all()
     reset = False
-
 
 
     context = {"posts": posts, "reset": reset, "tags": tags}
@@ -147,6 +146,7 @@ def magazine(request):
     """Generate magazine page"""
     context={}
     return render(request, "home/magazine.html", context)
+
 
 
 
