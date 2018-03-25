@@ -1,4 +1,4 @@
-{% extends '../base.html' %} {% load markdown_deux_tags %} {% block content %}
+ {% extends '../base.html' %} {% load markdown_deux_tags %} {% block content %}
 
 <section class="feed">
     <div class="mdc-layout-grid mdc-layout-grid-margin-desktop">
@@ -34,7 +34,14 @@
 
             </div>
             <div class="feed-content mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
-                {% for p in posts %} {% if p.type == "FEAT" %} {% include './feed/feed_feature_blog.html' with p=p %} {% elif p.type == "LINK" %} {% include './feed/feed_link_blog.html' with p=p %} {% else %} {% include './feed/blog_tile.html' with p=p %} {% endif %}
+                {% for p in posts %}
+                    {% if p.feature.get_content_type == "feature" %}
+{#                        {% include './feed/feed_feature_blog.html' with p=p %}#}
+                    {% elif p.link.get_content_type == "link" %}
+{#                        {% include './feed/feed_link_blog.html' with p=p %}#}
+                    {% else %}
+                        {% include 'home/feed/feed_video_blog.html' with p=p %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
