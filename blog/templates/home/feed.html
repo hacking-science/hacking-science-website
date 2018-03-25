@@ -36,7 +36,7 @@
             <div class="feed-content mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
                 {% for p in posts %}
                     {% if p.feature.get_content_type == "feature" %}
-{#                        {% include './feed/feed_feature_blog.html' with p=p %}#}
+                        {% include './feed/feed_feature_blog.html' with p=p %}
                     {% elif p.link.get_content_type == "link" %}
 {#                        {% include './feed/feed_link_blog.html' with p=p %}#}
                     {% else %}
