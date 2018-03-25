@@ -273,15 +273,25 @@ nav {
 
  .single__container {
      padding: 32px 0;
+     margin: 32px 0;
      background-color: white;
  }
 
  .single__title {
-     margin: 16px 0;
- }
+     margin: 32px 0;
+}
 
  .single__title h1{
     font-size: 22pt;
+    font-weight: 700;
+}
+
+.single__summary {
+    margin: 32px 0;
+}
+
+.single__summary p {
+    font-size: 16pt;
 }
 
 .single__content h2 {
