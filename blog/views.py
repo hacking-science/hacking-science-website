@@ -13,7 +13,7 @@ def index(request):
 def tag(request, tag_id=None):
     if tag_id:
         tags = Tag.objects.exclude(id=tag_id)
-        posts = Post.objects.filter(post_tag_set__tag__id=tag_id)
+        posts = Post.objects.filter(tags=tag_id)
         reset = True
         context = {"posts": posts, "reset": reset, "tags": tags}
 
