@@ -1,5 +1,5 @@
 __author__ = 'max'
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from blog import views
 
@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^mapToBreathe/$', views.mapToBreathe, name='mapToBreathe'),
     url(r'about/$', views.about, name='about'),
     #url(r'^search/$', views.search, name='search')
-    url(r'^post/(?P<post_id>\d+)/$', views.post, name='post')
+    url(r'^post/(?P<post_id>\d+)/$', views.post, name='post'),
+    url(r'^martor/', include('martor.urls'))
 ]

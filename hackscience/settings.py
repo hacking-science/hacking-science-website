@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'markdown_deux',
     'django_nose',
+    'martor'
 
 ]
 

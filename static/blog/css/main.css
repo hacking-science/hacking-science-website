@@ -1,0 +1,342 @@
+/* BASE */
+body {
+    background-color: #EEEEEE;
+}
+
+img {
+    object-fit: cover;
+}
+
+/* NAVBAR */
+nav {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* HOME */
+
+.home__cover {
+    position: relative;
+    height: 384px;
+}
+.home__cover-image {
+    position: absolute;
+    height: 100%;
+}
+
+.home__cover img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.home__welcome {
+    position: absolute;
+    margin: 32px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+.home__welcome * {
+    background-color: rgba(202, 41, 41, 0.7);
+    display: inline-block;
+    padding: 0 12px;
+}
+
+.home__welcome h1 {
+    font-size: 32pt;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.home__welcome h2 {
+    font-size: 18pt;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 8px;
+}
+
+.home__about {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 32px;
+}
+
+.home__about-item {
+    text-align: center;
+    padding: 32px;
+    margin: 32px 0;
+}
+.home__about-item a {
+    color: white;
+}
+/* Apply style to direct children */
+.home__about-item a > div {
+    margin: 16px 0;
+}
+
+.home__about-title h2 {
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.home__about-icon object {
+    width: 64px;
+}
+
+/* Individual item color styles */
+#science {
+    background-color: #1E88E5;
+}
+#coding {
+    background-color: #F44336;
+}
+#environment {
+    background-color: #43A047;
+}
+#creative-spaces {
+    background-color: #FFAB00;
+}
+#history {
+    background-color: #BA68C8;
+}
+#magazine {
+    background-color: #00BCD4;
+}
+
+@media screen and (min-width : 768px) {
+    .home__about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 32px;
+        grid-auto-rows: 1fr;
+    }
+    .home__welcome {
+        margin: 64px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .home__about-container {
+        margin-left: 64px;
+        margin-right: 64px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .home__welcome {
+        margin: 96px;
+    }
+}
+
+/* ================= */
+
+
+
+/* ====== blog_navbar.html ======== */
+
+.columns.is-mobile.is-centered {
+    margin-top: 48px;
+}
+
+.date.month {
+    color: red;
+}
+.date.day {
+    text-align: center;
+}
+
+.event .title {
+    margin-bottom: 0;
+    color: black !important;
+}
+.event.card {
+    border-radius: 10px;
+}
+.event img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.columns {
+    margin-right: 32px;
+    margin-left: 32px;
+}
+.this-month {
+    text-align: center;
+}
+
+.columns {
+    margin: 32px;
+}
+.this-month p {
+    color: white;
+    background: #ff6f00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 50px;
+    display: inline-block;
+
+}
+.upcoming  {
+    text-align: center;
+    margin-top: 32px;
+}
+.upcoming p {
+    color: white;
+    background: #ff6f00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 50px;
+    display: inline-block;
+
+}
+ /*=== home/feed/feed_feature.html === */
+ /* feature card */
+.feature {
+    display: inline-block;
+    width: 100%;
+}
+.card__primary {
+    margin: 1rem;
+}
+.card__secondary {
+    margin: 0.2rem 1rem;
+}
+/* Not working currently */
+.mdc-chip-set:first-child {
+    margin-left: 0;
+}
+/*=========== home/feed ==========*/
+
+
+.feed-item img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom CSS Property for grid margin */
+/* https://material.io/components/web/catalog/layout-grid/ */
+.mdc-layout-grid-margin-desktop {
+    margin: 0 32px;
+}
+
+.card__title {
+    font-size: 18pt;
+    font-weight: 600px;
+}
+/* -------- search ------- */
+.feed__search {
+    margin-left: 7px;
+}
+
+/* ------- tags ------- */
+.mdc-chip {
+    padding-top: 4px;
+    background-color: white;
+}
+
+.unapply-tag-temp-fix {
+    transform: translate3d(0,-5px,0);
+}
+
+/* spacing between all items in feed content */
+.feed-item {
+    margin: 32px 0;
+}
+
+ /*=== home/feed/feed_feature.html === */
+.card__media-title {
+    padding: 8px 16px;
+    /* Gradient on title in link card */
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+}
+.card__media-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.crop-img {
+    overflow: hidden;
+}
+
+.center-img {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+ /*=== post/single.html === */
+.single  {
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-areas: '. content .';
+    margin: 64px
+}
+
+.single__container {
+    grid-area: content;
+}
+
+@media screen and (min-width: 600px) {
+    .single  {
+        grid-template-columns: 1fr 600px 1fr;
+    }
+}
+
+
+
+
+/* =========event.html ========= */
+.events-temp-height-90-vh {
+    height: 90vh;
+}
+
+/* Footer */
+.footer {
+    /* neutralising padding being applied from default footer styling */
+    padding: 0;
+    background-color: white;
+}
+
+.footer-nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+    width: 90%;
+}
+
+.footer__col {
+    float: left;
+    width: 50%;
+    line-height: 25px;
+}
+
+.footer__col-title {
+    margin-bottom: 4px;
+    margin-top: 35px;
+}
+
+.footer__link {
+    color: #9b9b9b;
+    display: block;
+    font-size: 12px;
+}
+
+.footer__legal {
+    border-top: 1px solid #272727;
+    clear: both;
+    color: #9b9b9b;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 25px;
+    margin-top: 45px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .footer__col {
+        width: 25%;
+    }
+}
