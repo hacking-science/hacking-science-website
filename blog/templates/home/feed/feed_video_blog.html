@@ -1,0 +1,29 @@
+ {% block p %}
+<article class="feed-item video-item">
+    <div class="mdc-card feature-card">
+        <div class="mdc-card__media mdc-card__media--16-9">
+            <div class="mdc-card__media-content">
+                <div class="youtube" data-embed='{{ p.video.video_id }}'>
+                    <div class="play-button"></div>
+            </div>
+        </div>
+        </div>
+        <div class="card__primary">
+            <h2 class="card__title">{{ p.title }}</h2>
+            <h3 class="card__subtitle">By {{ p.author }}</h3>
+        </div>
+        <div class="card__secondary">
+            <h3 class="feed-card__summary card__subtitle">{{ p.summary }}<h3>
+        </div>
+        <div class="mdc-card__actions">
+            <div class="mdc-card__action-icons">
+            {% for t in p.get_tags|slice:":4" %}
+            <div class="mdc-chip">
+                <div class="mdc-chip__text"><a href="{% url 'tag' tag_id=t.id %}">#{{t.title}}</a></div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
