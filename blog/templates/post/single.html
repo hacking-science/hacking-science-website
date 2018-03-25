@@ -1,44 +1,32 @@
-{% extends '../base.html' %} {% block content %}
-{% load markdown_deux_tags %}
+{% extends '../base.html' %} 
+{% block content %}
+{% load martortags %}
 
 <div class="single">
-    <div class="single__container">
-        <div class="single__header">
-            <div class="single__title">
-                <h1 class="title">
-                    {{ post.title }}
-                </h1>
+    <div class="single__inner">
+        <div class="single__container">
+            <div class="single__header">
+                <div class="single__title">
+                    <h1>
+                        {{ post.title }}
+                    </h1>
+                </div>
+                <div class="single__summary">
+                    <p>
+                        {{ post.summary }}
+                    </p>
+                </div>
             </div>
-            <div class="single__subtitle">
-                <h2 class="subtitle">
-                    Summary
-                </h2>
-            </div>
+        <div class="single__content">
+            {{ post.feature.content|safe_markdown }}
         </div>
-
-    {% if post.type == "FEAT" %}
-
-        <div class="media-content">
-            <div class="content">
-                {{ post.content|markdown }}
-            </div>
-        </div>
-    {% else %}
-
-        <div class="single__content-container">
-            <div class="single__content">
-                {{ post.content }}
-            </div>
-        </div>
-
-    {% endif %}
-
         <div class="single__tags">
             {% for tag in post.get_tags %}
             <div class="single__tag">
                 <a href="{% url 'tag' tag_id=tag.id %}">{{tag.title}}</a>
             </div>
             {% endfor %}
+        </div>
         </div>
     </div>
 </div>

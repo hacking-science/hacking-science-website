@@ -3,10 +3,12 @@ from __future__ import unicode_literals
 
 from django.db import models
 # from model_utils.managers import InheritanceManager
-from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
-from django.contrib.contenttypes.models import ContentType
+
+from martor.models import MartorField
+
 import urllib2
 from bs4 import BeautifulSoup
+
 
 
 class AbstractBaseClass(models.Model):
@@ -47,7 +49,7 @@ class Post(AbstractBaseClass):
 
 
 class Feature(Post):
-    content = models.TextField(blank=True)
+    content = MartorField()
     image_url = models.URLField(blank=True, default="")
 
 
