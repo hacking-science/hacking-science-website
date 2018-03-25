@@ -58,7 +58,6 @@ class Video(Post):
 class Link(Post):
 
     url = models.CharField(max_length=500)
-    image_url=models.CharField(max_length=500)
 
     def get_og_image_url(self):
         print(self.url)
