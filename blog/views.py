@@ -12,6 +12,11 @@ def index(request):
     context = {}
     return render(request, "home/index.html", context)
 
+def hackingEducationHome(request):
+    """Generate Home Page"""
+    context = {}
+    return render(request, "index.html", context)
+
 def tag(request, tag_id=None):
     if tag_id:
         tags = Tag.objects.exclude(id=tag_id)
