@@ -692,3 +692,57 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+
+
+/* Custom CSS */
+
+/* Footer */
+.footer {
+    /* neutralising padding being applied from default footer styling */
+    padding: 0;
+    background-color: white;
+}
+
+.footer-nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+    width: 90%;
+}
+
+.footer__col {
+    float: left;
+    width: 50%;
+    line-height: 25px;
+}
+
+.footer__col-title {
+    margin-bottom: 4px;
+    margin-top: 35px;
+}
+
+.footer__link {
+    color: #9b9b9b;
+    display: block;
+    font-size: 12px;
+}
+
+.footer__legal {
+    border-top: 1px solid #272727;
+    clear: both;
+    color: #9b9b9b;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 25px;
+    margin-top: 45px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .footer__col {
+        width: 25%;
+    }
+}
