@@ -104,6 +104,7 @@ ENV/
 virtualenv-hacking-science-website/
 db.sqlite3
 /staticfiles/
+/static/
 .coverage
 coverage/
 coverage.xml
