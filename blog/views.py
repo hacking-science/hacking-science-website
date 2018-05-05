@@ -15,7 +15,7 @@ def index(request):
 def hackingEducationHome(request):
     """Generate Home Page"""
     context = {}
-    return render(request, "index.html", context)
+    return render(request, "nova/nova-base.html", context)
 
 def tag(request, tag_id=None):
     if tag_id:
