@@ -5,9 +5,8 @@
 {% include "../body/sections/portfolio_page.html" %}
 {% include "../body/sections/modal/portfolio_modal.html" %}
 {% include "../body/sections/about_page.html" %}
-{% include "../body/sections/team_page.html" %}
-{% include "../body/sections/latest_blogs.html" %}
-{% include "../body/sections/client_page.html" %}
+{% comment %} {% include "../body/sections/team_page.html" %} {% endcomment %}
+{% include "../body/sections/latest_blogs.html" with news_posts=news_posts %}
 {% include "../body/sections/contact_us_section.html" %}
 {% endblock %}
 
