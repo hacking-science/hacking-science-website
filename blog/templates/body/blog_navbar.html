@@ -5,15 +5,15 @@
             <div class="navbar-brand">
                 <a href="/" class="navbar-item has-text-weight-bold is-size-5">
                     <!-- <img src="{% static '/blog/img/hacking-science-logo.png' %}" alt=""> -->
-                    HACKING SCIENCE
+                    HACK FEED
                 </a>
-                <div class="navbar-burger" data-target="blogNavbar">
+                {% comment %} <div class="navbar-burger" data-target="blogNavbar">
                         <span></span>
                         <span></span>
                         <span></span>
-                </div>
+                </div> {% endcomment %}
             </div>
-            <div id="blogNavbar" class="navbar-menu">
+            {% comment %} <div id="blogNavbar" class="navbar-menu">
                 <div class="navbar-end">
                     <a href="{% url 'about' %}" class="navbar-item">ABOUT</a>
                     <a href="{% url 'hackfeed' %}" class="navbar-item">HACKFEED</a>
@@ -29,6 +29,6 @@
                     <a href="{% url 'breathe:home' %}" class="navbar-item">mapToBreathe</a>
                     <a href="{% url 'subscribe' %}" class="navbar-item">SUBSCRIBE</a>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </nav>
