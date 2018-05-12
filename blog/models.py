@@ -6,7 +6,7 @@ from django.db import models
 
 from martor.models import MartorField
 
-import urllib2
+import urllib3
 from bs4 import BeautifulSoup
 
 
@@ -64,7 +64,7 @@ class Link(Post):
     def get_og_image_url(self):
         print(self.url)
         """Generates an image from url if og:image meta tag exists"""
-        bs = BeautifulSoup(urllib2.urlopen(self.url))
+        bs = BeautifulSoup(urllib3.urlopen(self.url))
 
         metatag = bs.find("meta", {"property": "og:image"})
 

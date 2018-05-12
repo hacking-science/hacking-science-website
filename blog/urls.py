@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^subscribe/$', views.subscribe, name='subscribe'),
     url(r'^mapToBreathe/$', views.mapToBreathe, name='mapToBreathe'),
     url(r'about/$', views.about, name='about'),
+    url(r'hackingEducationHome/$', views.hackingEducationHome, name='hackingEducationHome'),
+    url(r'hackingEducationHome/other/$', views.hackingEducationOtherPage, name='hackingEducationOtherPage'),
     #url(r'^search/$', views.search, name='search')
     url(r'^post/(?P<post_id>\d+)/$', views.post, name='post'),
     url(r'^martor/', include('martor.urls'))

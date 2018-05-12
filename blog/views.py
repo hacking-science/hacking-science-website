@@ -4,13 +4,23 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
-import urllib2
+
 from bs4 import BeautifulSoup
 
 def index(request):
     """Generate Home Page"""
     context = {}
     return render(request, "home/index.html", context)
+
+def hackingEducationHome(request):
+    """Generate Home Page"""
+    context = {}
+    return render(request, "nova/page/homepage.html", context)
+
+def hackingEducationOtherPage(request):
+    """Generate Home Page"""
+    context = {}
+    return render(request, "nova/page/otherpage.html", context)
 
 def tag(request, tag_id=None):
     if tag_id:
