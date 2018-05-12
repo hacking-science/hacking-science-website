@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
-import urllib2
+
 from bs4 import BeautifulSoup
 
 def index(request):
