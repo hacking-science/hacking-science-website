@@ -9,12 +9,11 @@ from bs4 import BeautifulSoup
 
 def index(request):
     """Generate Home Page"""
-    context = {}
-    return render(request, "home/index.html", context)
+    posts = Post.objects.filter(tags__title='news')
 
-def hackingEducationHome(request):
-    """Generate Home Page"""
-    context = {}
+    context = {
+        "news_posts": posts
+    }
     return render(request, "nova/page/homepage.html", context)
 
 def hackingEducationOtherPage(request):
