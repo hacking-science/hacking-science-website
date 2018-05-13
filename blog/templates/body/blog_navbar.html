@@ -3,7 +3,7 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a href="/" class="navbar-item has-text-weight-bold is-size-5">
+                <a href="{% url 'hackfeed' %}" class="navbar-item has-text-weight-bold is-size-5">
                     <!-- <img src="{% static '/blog/img/hacking-science-logo.png' %}" alt=""> -->
                     HACK FEED
                 </a>
@@ -30,5 +30,9 @@
                     <a href="{% url 'subscribe' %}" class="navbar-item">SUBSCRIBE</a>
                 </div>
             </div> {% endcomment %}
+             <div class="navbar-end">
+                    <a href="/" class="navbar-item">HACKING EDUCATION</a>
+             </div>
+
         </div>
     </nav>
