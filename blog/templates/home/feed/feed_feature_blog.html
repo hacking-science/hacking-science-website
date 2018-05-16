@@ -9,9 +9,9 @@
         </div>
         <div class="card__primary">
             <h2 class="card__title">{{ p.title }}</h2>
-            <!-- <h3 class="card__subtitle">By {{ p.author }}</h3> -->
+
             <!-- Uncomment and when models.py updated -->
-            <h3 class="card__subtitle mdc-typography--subheading1">By Author<h3>
+            <h3 class="card__subtitle mdc-typography--subheading1">By {{ p.author }}<h3>
         </div>
         <div class="card__secondary">
             {{ p.shorten_content|markdown }}
