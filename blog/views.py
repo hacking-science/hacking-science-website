@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
+from django.db.models import Q
 
 from bs4 import BeautifulSoup
 
@@ -127,13 +128,13 @@ def informalsci(request):
     return render(request, "home/informalsci.html", context)
 
 
-def coding(request):
-    """Generate coding page"""
+def codingHackfeed(request):
+    """Returns coding page"""
     context={}
     return render(request, "home/coding.html", context)
 
 
-def environment(request):
+def environmentHackfeed(request):
     """Generate environment page"""
     context={}
     return render(request, "home/environment.html", context)
@@ -145,10 +146,16 @@ def creativespaces(request):
     return render(request, "home/creativespaces.html", context)
 
 
-def history(request):
-    """Generate history page"""
-    context={}
-    return render(request, "home/history.html", context)
+def historyHackfeed(request):
+    """Returns hackFeed filtered with history and/or race tagged posts"""
+
+    posts = Post.objects.filter(Q(tags__title__icontains='race') | Q(tags__title__icontains='history')).distinct()
+    tags = Tag.objects.all()
+    reset = False
+
+
+    context={"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
 
 
 def magazine(request):

@@ -7,12 +7,14 @@ from blog import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^informalsci/$', views.informalsci, name='informalsci'),
-    url(r'^coding/$', views.coding, name='coding'),
-    url(r'^environment/$', views.environment, name='environment'),
-    url(r'^creativespaces/$', views.creativespaces, name='creativespaces'),
-    url(r'^history/$', views.history, name='history'),
+    #url(r'^coding/$', views.coding, name='coding'),
+    #url(r'^environment/$', views.environment, name='environment'),
+    #url(r'^creativespaces/$', views.creativespaces, name='creativespaces'),
+    #url(r'^history/$', views.history, name='history'),
     url(r'^magazine/$', views.magazine, name='magazine'),
     url(r'^hackfeed/$', views.feed, name='hackfeed'),
+    url(r'^hackfeed/historyrace$', views.historyHackfeed, name='historyHackfeed'),
+
     url(r'^tag/(?P<tag_id>\d+)', views.tag, name='tag'),
     url(r'^theEdge/$', views.theEdge, name='theEdge'),
     url(r'^bridgeAcademy/$', views.brigdeAcademy, name='bridgeAcademy'),
