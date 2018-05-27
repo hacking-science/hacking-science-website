@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from blog.models import Post, Tag
+from django.db.models import Q
 
 from bs4 import BeautifulSoup
 
@@ -121,22 +122,38 @@ def about(request):
     return render(request, "home/about.html", context)
 
 
-def informalsci(request):
-    """Generate informal science page"""
-    context={}
-    return render(request, "home/informalsci.html", context)
+def scienceHackfeed(request):
+    """Returns hackFeed filtered with science/workshops tagged posts"""
+
+    posts = Post.objects.filter(Q(tags__title__icontains='dalston') | Q(tags__title__icontains='edge')| Q(tags__title__icontains='science')| Q(tags__title__icontains='workshop')).distinct()
+    tags = Tag.objects.all()
+    reset = False
 
 
-def coding(request):
-    """Generate coding page"""
-    context={}
-    return render(request, "home/coding.html", context)
+    context={"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
 
 
-def environment(request):
-    """Generate environment page"""
-    context={}
-    return render(request, "home/environment.html", context)
+def codingHackfeed(request):
+    """Returns hackFeed filtered with programming tagged posts"""
+    posts = Post.objects.filter(Q(tags__title__icontains='coding') | Q(tags__title__icontains='programming')| Q(tags__title__icontains='code')).distinct()
+    tags = Tag.objects.all()
+    reset = False
+
+    context = {"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
+
+
+def environmentHackfeed(request):
+    """Returns hackFeed filtered with environment/maptobreathe/air"""
+
+    posts = Post.objects.filter(Q(tags__title__icontains='environment') | Q(tags__title__icontains='maptobreathe')).distinct()
+    tags = Tag.objects.all()
+    reset = False
+
+
+    context={"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
 
 
 def creativespaces(request):
@@ -145,16 +162,44 @@ def creativespaces(request):
     return render(request, "home/creativespaces.html", context)
 
 
-def history(request):
-    """Generate history page"""
-    context={}
-    return render(request, "home/history.html", context)
+def historyHackfeed(request):
+    """Returns hackFeed filtered with history and/or race tagged posts"""
+
+    posts = Post.objects.filter(Q(tags__title__icontains='race') | Q(tags__title__icontains='history')).distinct()
+    tags = Tag.objects.all()
+    reset = False
+
+
+    context={"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
 
 
 def magazine(request):
-    """Generate magazine page"""
-    context={}
-    return render(request, "home/magazine.html", context)
+    """Returns hackFeed filtered with magazine tagged posts"""
+    posts = Post.objects.filter(Q(tags__title__icontains='magazine') | Q(tags__title__icontains='posterbook')).distinct()
+    tags = Tag.objects.all()
+    reset = False
+
+    context = {"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
+
+def bridge(request):
+    """Returns hackFeed filtered with bridge tagged posts"""
+    posts = Post.objects.filter(tags__title__icontains='dalston')
+    tags = Tag.objects.all()
+    reset = False
+
+    context = {"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
+
+def edge(request):
+    """Returns hackFeed filtered with edge tagged posts"""
+    posts = Post.objects.filter(tags__title__icontains='edge')
+    tags = Tag.objects.all()
+    reset = False
+
+    context = {"posts": posts, "reset": reset, "tags": tags}
+    return render(request, "home/feed.html", context)
 
 
 
