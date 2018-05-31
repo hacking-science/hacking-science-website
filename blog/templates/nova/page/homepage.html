@@ -1,4 +1,5 @@
 {% extends 'nova/nova-base.html' %}
+{% load staticfiles %}
 {% block content %}
 {% include "nova/body/sections/front_page.html" %}
 {% include "nova/body/sections/service_page.html" %}
@@ -6,7 +7,80 @@
 {% include "nova/body/sections/modal/portfolio_modal.html" %}
 {% include "nova/body/sections/about_page.html" %}
 {% comment %} {% include "../body/sections/team_page.html" %} {% endcomment %}
+{% comment %}
 {% include "nova/body/sections/latest_blogs.html" with news_posts=news_posts %}
+{% endcomment %}
+<!-- lastest news -->
+    <section class="bg-light" id="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Latest News</h2>
+            <h3 class="section-subheading text-muted">Here's the latest from us</h3>
+          </div>
+        </div>
+        <div class="row">
+
+          </div>
+
+          <div class="row">
+
+          {% for p in news_posts|slice:":3" %}
+
+                <div class="col-sm-4">
+
+                  {% if p.link.get_content_type == "link"  %}
+
+                      <div class="col-sm-4>" data-toggle="modal">
+                      <img class="img-fluid d-block mx-auto" src="{{ p.link.get_og_image_url }}">
+
+                      </div>
+
+                       <div class="mdc-card__actions mdc-card__action-icons" >
+                            <h4 class="text-center">{{ p.title }}</h4>
+                            <p class="text-muted text-center">{{ p.summary }}</p>
+                      </div>
+
+
+                                <button class="btn" style="display: block; margin: 0 auto;">
+                                    <a href="{{ p.link.url }}" target="_blank">Go></a>
+                                </button>
+
+
+                  {% else %}
+
+                      <div class="col-sm-4>">
+                      <h4 class="text-center">{{ p.title }}</h4>
+                  <p class="text-muted text-center">{{ p.summary }}</p>
+                      <button class="btn" style="display: block; margin: 0 auto;">
+                                    <a href="{% url 'post' post_id=p.id %}" target="_blank">More></a>
+                                </button>
+                  </div>
+
+
+                    {% endif %}
+
+                    {% comment %}<h4 class="text-center">{{ p.title }}</h4>
+                  <p class="text-muted text-center">{{ p.summary }}</p>{% endcomment %}
+                </div>
+
+            {% endfor %}
+          </div>
+          </div>
+
+        {% comment %} <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'hackfeed' %}">See All</a>
+
+          </div>
+        </div> {% endcomment %}
+
+
+
+      </div>
+    </section>
+    
 {% include "nova/body/sections/contact_us_section.html" %}
 {% endblock %}
 
