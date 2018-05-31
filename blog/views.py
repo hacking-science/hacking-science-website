@@ -17,10 +17,6 @@ def index(request):
     }
     return render(request, "nova/page/homepage.html", context)
 
-def hackingEducationOtherPage(request):
-    """Generate Home Page"""
-    context = {}
-    return render(request, "nova/page/otherpage.html", context)
 
 def tag(request, tag_id=None):
     if tag_id:
