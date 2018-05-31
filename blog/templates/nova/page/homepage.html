@@ -1,12 +1,12 @@
-{% extends '../nova-base.html' %}
+{% extends 'nova/nova-base.html' %}
 {% block content %}
-{% include "../body/sections/front_page.html" %}
-{% include "../body/sections/service_page.html" %}
-{% include "../body/sections/portfolio_page.html" %}
-{% include "../body/sections/modal/portfolio_modal.html" %}
-{% include "../body/sections/about_page.html" %}
+{% include "nova/body/sections/front_page.html" %}
+{% include "nova/body/sections/service_page.html" %}
+{% include "nova/body/sections/portfolio_page.html" %}
+{% include "nova/body/sections/modal/portfolio_modal.html" %}
+{% include "nova/body/sections/about_page.html" %}
 {% comment %} {% include "../body/sections/team_page.html" %} {% endcomment %}
-{% include "../body/sections/latest_blogs.html" with news_posts=news_posts %}
-{% include "../body/sections/contact_us_section.html" %}
+{% include "nova/body/sections/latest_blogs.html" with news_posts=news_posts %}
+{% include "nova/body/sections/contact_us_section.html" %}
 {% endblock %}
 
